@@ -1,38 +1,426 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+ background-image: linear-gradient(180deg, rgb(152, 193, 217),rgb(19, 82, 119));
+ color: rgb(41, 50, 65);
+ font-family: sans-serif;
+ min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header{
+ min-height: 20vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/* FORM STYLES */
+.task-form{
+ padding: 0.5rem;
+ font-size: 2rem;
+ min-height: 10vh;
+ margin-bottom: 0.5rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.project-form{
+ padding: 0.5rem;
+ margin-bottom: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.project-form,
+.filters{
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
+
+.task-form, button{
+ cursor: pointer;
+ outline:none;
+ transition: all 0.4s;
+ color: rgb(61, 90, 128);
+}
+
+.task-form, button:hover{
+ color: rgb(152, 193, 217);
+}
+
+
+/* INPUTS AND BUTTONS STYLES */
+.task-input,
+.task-button,
+.project-input,
+.project-button {
+ padding: 0.5rem;
+ font-size: 2rem;
+ border: none;
+ outline: none;
+ background-color: white;
+}
+
+.project-input,
+.project-button {
+ font-size: 1.2rem;
+}
+
+/* TASKS CONTAINER/LIST STYLES */
+.task-container{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.task-list{
+ min-width: 31%;
+ max-width: 40%;
+ list-style: none;
+}
+
+
+/* TASK ELEMENTS STYLES */
+.task-box,
+.task-details{
+ background: white;
+ border-left: solid;
+ border-left-width: 6px;
+ transition: all 0.4s ease;
+}
+
+.task-box{
+ margin: 0.5rem;
+ margin-bottom: 0.1rem;
+ padding-bottom: 0rem;
+ font-size: 1.8rem;
+ overflow: hidden;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+/* TASK TEXT/ITEM STYLES */
+.task-item{
+ padding: 0.5rem;
+ max-width: 80%;
+ overflow: hidden;
+ background: white;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex: 1;
+}
+
+
+/* TASK DETAILS STYLES */
+.task-details{
+ padding: 0 0.5rem;
+ margin: 0.1rem 0.5rem 0.5rem 0.5rem;
+ min-width: 31%;
+ font-size: 1.4rem;
+ color: rgb(117, 117, 117);
+ border-left-color:  rgb(117, 117, 117);
+ max-height: 0;
+ overflow: hidden;
+}
+
+
+/* PRIORITY LEVELS STYLES */
+.low{
+ border-left-color: rgb(42, 148, 26);
+}
+
+.medium{
+ border-left-color: rgb(230, 199, 28);
+}
+
+.high{
+ border-left-color: rgb(197, 43, 22);
+}
+
+
+/* BUTTONS STYLES */
+.delete-button,
+.complete-button,
+.priority-button,
+.info-button{
+ padding: 0.5rem;
+ font-size: 1.7rem;
+ display: inline;
+ border: none;
+ outline:none;
+ background-color: white;
+ cursor: pointer;
+ transition: all 0.4s;
+ color: rgb(61, 90, 128);
+}
+
+.delete-button:hover{
+ color: rgb(197, 43, 22);
+}
+
+.complete-button:hover{
+ color: rgb(42, 148, 26);
+}
+
+.priority-button:hover{
+ color: rgb(230, 199, 28);
+}
+
+.info-button:hover{
+ color: rgb(163, 164, 165);
+}
+
+
+/* ICONS STYLES */
+.fa-minus-circle,
+.fa-check-circle,
+.fa-layer-group,
+.fa-info-circle{
+ pointer-events: none;
+}
+
+
+/* DONE TASK STYLES */
+.completed{
+ text-decoration: line-through;
+ opacity: 0.6;
+}
+
+/* DELETED TASK STYLES */
+.deleted{
+ transform: translateX(3rem);
+ opacity: 0;
+}
+
+/* FILTERING BOX STYLES */
+select{
+ outline: none;
+ border: none;
+}
+
+/* FILTERING STYLES */
+.select{
+ margin: 1rem;
+ position: relative;
+ overflow: hidden;
+ display: inline;
+}
+
+.select::after{
+ content: "\25BC";
+ position: absolute;
+ color: rgb(61, 90, 128);
+ top: 0;
+ right: 0;
+ padding: 0.5rem;
+ pointer-events: none;
+}
+
+.select:hover::after{
+ color: rgb(152, 193, 217);
+ transition: all 0.4s;
+}
+
+.filters{
+ padding: 0.1rem;
+ margin-bottom: 0.5rem;
+}
+
+.filter-project,
+.filter-priority{
+ appearance: none;
+ color: rgb(61, 90, 128);
+ background-color: white;
+ width: 6rem;
+ cursor: pointer;
+ padding: 0.5rem;
+ font-size: 1rem;
+}
+
+/* SELECTING PROJECT OR TASK-PARTNER TO TASK */
+.select-project{
+ color: rgb(61, 90, 128);
+ background-color: rgb(255, 255, 255);
+ width: 6rem;
+ cursor: pointer;
+ font-size: 1.2rem;
+ position: relative;
+ overflow: hidden;
+}
+
+
+/* MOBILE STYLES */
+@media only screen and (max-width:1024px){
+ header{
+     min-height: 12vh;
+     font-size: 1.3rem;
+ }
+
+ .task-input,
+ .task-button,
+ .project-input,
+ .project-button {
+     padding: 0.3rem;
+     font-size: 1.5rem;
+ }
+
+ .project-input,
+ .project-button {
+     font-size: 1.0rem;
+ }
+ 
+ .task-form{
+     padding: 0.3rem;
+     font-size: 1.5rem;
+     min-height: 7vh;
+     margin-bottom: 0.3rem;
+ }
+
+ .task-box,
+ .task-details{
+     border-left-width: 4px;
+ }
+
+ .task-box{
+     margin: 0.3rem;
+     margin-bottom: 0.1rem;
+     padding-bottom: 0rem;
+     font-size: 1.3rem;
+ }
+
+ .task-details{
+     padding: 0 0.3rem;
+     margin: 0.1rem 0.3rem 0.3rem 0.3rem;
+     font-size: 1.0rem;
+ }
+
+ .delete-button,
+ .complete-button,
+ .priority-button,
+ .info-button{
+     padding: 0.3rem;
+     font-size: 1.2rem;
+ }
+
+ .select{
+     margin: 0.8rem;
+ }
+ 
+ .select::after{
+     padding: 0.3rem;
+ }
+
+ h3{
+     font-size: 0.9rem;
+ }
+
+ .filters{
+     padding: 0.1rem;
+     margin-bottom: 0.3rem;
+ }
+ 
+ .filter-project,
+ .filter-priority{
+     width: 4rem;
+     padding: 0.3rem;
+     font-size: 0.9rem;
+ }
+ 
+ .select-project{
+     width: 4rem;
+     font-size: 0.9rem;
+ }
+}
+
+@media only screen and (max-width:720px){
+ header{
+     min-height: 10vh;
+     font-size: 1.0rem;
+ }
+
+ .task-input,
+ .task-button,
+ .project-input,
+ .project-button {
+     padding: 0.3rem;
+     font-size: 1.1rem;
+ }
+
+ .project-input,
+ .project-button {
+     font-size: 0.8rem;
+ }
+ 
+ .task-form{
+     padding: 0.3rem;
+     font-size: 1.2rem;
+     min-height: 5vh;
+     margin-bottom: 0.2rem;
+ }
+
+ .task-box,
+ .task-details{
+     border-left-width: 3px;
+ }
+
+ .task-box{
+     margin: 0.2rem;
+     margin-bottom: 0.1rem;
+     padding-bottom: 0rem;
+     font-size: 0.9rem;
+ }
+
+ .task-details{
+     padding: 0 0.3rem;
+     margin: 0.1rem 0.2rem 0.2rem 0.2rem;
+     font-size: 0.7rem;
+ }
+
+ .delete-button,
+ .complete-button,
+ .priority-button,
+ .info-button{
+ padding: 0.2rem;
+ font-size: 0.9rem;
+ }
+
+ .select{
+     margin: 0.6rem;
+ }
+ 
+ .select::after{
+     padding: 0.2rem;
+ }
+
+ h3{
+     font-size: 0.65rem;
+ }
+
+ .filters{
+     padding: 0.1rem;
+     margin-bottom: 0.2rem;
+ }
+ 
+ .filter-project,
+ .filter-priority{
+     width: 3rem;
+     padding: 0.2rem;
+     font-size: 0.7rem;
+ }
+ 
+ .select-project{
+     width: 3rem;
+     font-size: 0.7rem;
+ }
+}
+
+
+
