@@ -1,10 +1,13 @@
 import React from 'react';
+import Todo from './Todo';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
     return (
     <div className="task-container">
         <ul id="task-list" className="task-list">
-            {/* ADDING DIVS WITH LI AND BUTTONS HERE */}
+            {todos.map(todo => (
+                <Todo />
+            ))}
         </ul>
     </div>
     );
