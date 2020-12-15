@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const Todo = () =>{
+const Todo = ({ text }) =>{
     return(
         <div className="task-box">
             <li className="task-item">
-                TEST
+                {text}
             </li>
             <button className="info-button"><i className="fas fa-info-circle"></i></button>
             <button className="priority-button"><i className="fas fa-layer-group"></i></button>
