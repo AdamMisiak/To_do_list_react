@@ -7,6 +7,7 @@ import TodoList from './components/TodoList'
 function App() {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([])
+  const [priorityFilter, setPriorityFilter] = useState("all")
 
   return (
     <div>
