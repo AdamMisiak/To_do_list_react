@@ -1,17 +1,21 @@
 import React from 'react';
 
 
-const Form = ({ setInputText, inputText, setTodos, todos }) => {
+const Form = ({ setInputText, inputText, setTodos, todos, setPriority }) => {
     const inputTextHandler = (e) => {
         setInputText(e.target.value)
-    }
+    };
     const submitTodoHandler = (e) => {
         e.preventDefault();
         setTodos([
             ...todos, {text: inputText, completed: false, id: Math.random() * 100}
         ]);
         setInputText("")
-    }
+    };
+    const priorityHandler = (e) => {
+        setPriority(e.target.value)
+    };
+
     return (
         <div>
             <form className="task-form">
@@ -21,18 +25,18 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
                 </button>
             </form>
 
-            <form class="project-form">
-                <input type="text" class="project-input" placeholder="Add project..."></input>
-                <button class="project-button" type="submit">
-                    <i class="fas fa-plus-circle"></i>
+            <form className="project-form">
+                <input type="text" className="project-input" placeholder="Add project..."></input>
+                <button className="project-button" type="submit">
+                    <i className="fas fa-plus-circle"></i>
                 </button>
             </form>
 
-            <form class="filters">
+            <form className="filters">
             <h3>Priority filter:</h3>
 
-            <div class="select priority">
-                <select name="filter-priority" class="filter-priority"  placeholder="Add project...">
+            <div className="select priority">
+                <select onChange={priorityHandler} name="filter-priority" className="filter-priority"  placeholder="Add project...">
                     <option value="all">All</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
@@ -41,8 +45,8 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
             </div>
 
             <h3>Project filter:</h3>
-            <div class="select project">
-                <select name="filter-project" class="filter-project">
+            <div className="select project">
+                <select name="filter-project" className="filter-project">
                     <option value="all">All</option>
                     <option value="none">None</option>
                 </select>
