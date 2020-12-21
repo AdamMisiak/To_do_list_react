@@ -10,6 +10,10 @@ function App() {
   const [priority, setPriority] = useState("all")
   const [filterPriority, setFilterPriority] = useState([])
 
+  useEffect(() => {
+    filterPriorityHandler();
+  }, [todos, priority]);
+
   const filterPriorityHandler = () => {
     switch(priority){
       case "low":
@@ -39,7 +43,11 @@ function App() {
         setInputText={setInputText}
         setPriority={setPriority}
       />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoList 
+        todos={todos} 
+        setTodos={setTodos} 
+        filterPriority={filterPriority}
+      />
       
     </div>
   );
