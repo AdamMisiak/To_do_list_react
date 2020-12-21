@@ -44,7 +44,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     }
 
     return(
-        <div className={`task-box  ${todo.priority} ${todo.completed ? "completed" : ""}`}>
+        <div className={`task-box ${todo.priority} ${todo.completed ? "completed" : ""}`}>
             <li className="task-item">
                 {text}
             </li>

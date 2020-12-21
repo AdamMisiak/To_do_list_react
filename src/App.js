@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Form from './components/Form'
@@ -12,9 +12,17 @@ function App() {
 
   const filterPriorityHandler = () => {
     switch(priority){
-      case 'completed':
-        // NEED TO BE CHANGE TO PRIOIRTY NOT STATUS
-        setFilterPriority(todos.filter(todo => todo.completed === true))
+      case "low":
+        setFilterPriority(todos.filter(todo => todo.priority === "low"));
+        break;
+      case "medium":
+        setFilterPriority(todos.filter(todo => todo.priority === "medium"));
+        break;
+      case "high":
+        setFilterPriority(todos.filter(todo => todo.priority === "high"));
+        break;
+      default:
+        setFilterPriority(todos);
         break;
     }
   }
