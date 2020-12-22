@@ -6,7 +6,9 @@ import TodoList from './components/TodoList'
 
 function App() {
   const [inputText, setInputText] = useState("");
+  const [inputProject, setInputProject] = useState("");
   const [todos, setTodos] = useState([])
+  const [projects, setProjects] = useState([])
   const [priority, setPriority] = useState("all")
   const [filterPriority, setFilterPriority] = useState([])
 
@@ -39,8 +41,12 @@ function App() {
       <Form
         todos={todos}
         setTodos={setTodos}
+        projects={projects}
+        setProjects={setProjects}
         inputText={inputText}
+        inputProject={inputProject}
         setInputText={setInputText}
+        setInputProject={setInputProject}
         setPriority={setPriority}
       />
       <TodoList 

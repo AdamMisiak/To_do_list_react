@@ -1,9 +1,12 @@
 import React from 'react';
 
 
-const Form = ({ setInputText, inputText, setTodos, todos, setPriority }) => {
+const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos, todos, setProjects, projects, setPriority }) => {
     const inputTextHandler = (e) => {
         setInputText(e.target.value)
+    };
+    const inputProjectHandler = (e) => {
+        setInputProject(e.target.value)
     };
     const submitTodoHandler = (e) => {
         e.preventDefault();
@@ -11,6 +14,13 @@ const Form = ({ setInputText, inputText, setTodos, todos, setPriority }) => {
             ...todos, {text: inputText, priority: 'low' , completed: false, deleted: false, id: Math.random() * 100}
         ]);
         setInputText("")
+    };
+    const submitProjectHandler = (e) => {
+        e.preventDefault();
+        setProjects([
+            ...projects, {text: inputProject, id: Math.random() * 100}
+        ]);
+        setInputProject("")
     };
     const priorityHandler = (e) => {
         setPriority(e.target.value)
@@ -26,8 +36,8 @@ const Form = ({ setInputText, inputText, setTodos, todos, setPriority }) => {
             </form>
 
             <form className="project-form">
-                <input type="text" className="project-input" placeholder="Add project..."></input>
-                <button className="project-button" type="submit">
+                <input value={inputProject} onChange={inputProjectHandler} type="text" className="project-input" placeholder="Add project..."></input>
+                <button onClick={submitProjectHandler} className="project-button" type="submit">
                     <i className="fas fa-plus-circle"></i>
                 </button>
             </form>
