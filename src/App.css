@@ -121,14 +121,23 @@ header{
 
 /* TASK DETAILS STYLES */
 .task-details{
+ display: block;
+ max-height: 26px;
  padding: 0 0.5rem;
  margin: 0.1rem 0.5rem 0.5rem 0.5rem;
  min-width: 31%;
  font-size: 1.4rem;
  color: rgb(117, 117, 117);
  border-left-color:  rgb(117, 117, 117);
- max-height: 0;
  overflow: hidden;
+}
+
+.hidden{
+    max-height: 0px;
+}
+
+.unhidden{
+    max-height: 26px;
 }
 
 
