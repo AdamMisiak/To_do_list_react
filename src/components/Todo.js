@@ -43,18 +43,37 @@ const Todo = ({ text, todo, todos, setTodos }) => {
         );
     }
 
+    const hiddenHandler = () => {
+        setTodos(todos.map((element) => {
+            if (element.id === todo.id){
+                if (element.details === "hidden"){
+                    return{
+                        ...element, details: "unhidden"
+                    };
+                }
+                if (element.details === "unhidden"){
+                    return{
+                        ...element, details: "hidden"
+                    };
+                }
+                }
+            }
+        )
+        );
+    };
+
     return(
         <div className="task">
             <div className={`task-box ${todo.priority} ${todo.completed ? "completed" : ""}`}>
                 <li className="task-item">
                     {text}
                 </li>
-                <button className="info-button"><i className="fas fa-info-circle"></i></button>
+                <button onClick={hiddenHandler} className="info-button"><i className="fas fa-info-circle"></i></button>
                 <button onClick={priorityHandler} className="priority-button"><i className="fas fa-layer-group"></i></button>
                 <button onClick={completeHandler} className="complete-button"><i className="fas fa-check-circle"></i></button>
                 <button onClick={deleteHandler} className="delete-button"><i className="fas fa-minus-circle"></i></button>
             </div>
-            <div className="task-details low">
+            <div className={`task-details low ${todo.details}`}>
                 <div className="task-project">
                     Project:
                     <select id="select-project" className="select-project">
