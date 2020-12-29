@@ -44,19 +44,20 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     }
 
     const hiddenHandler = () => {
-        setTodos(todos.map((element) => {
+        setTodos(todos.map((element) => {    
             if (element.id === todo.id){
                 if (element.details === "hidden"){
                     return{
                         ...element, details: "unhidden"
                     };
                 }
-                if (element.details === "unhidden"){
+                else if (element.details === "unhidden"){
                     return{
                         ...element, details: "hidden"
                     };
                 }
                 }
+                return element;
             }
         )
         );
