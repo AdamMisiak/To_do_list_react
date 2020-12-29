@@ -74,7 +74,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
                 <button onClick={completeHandler} className="complete-button"><i className="fas fa-check-circle"></i></button>
                 <button onClick={deleteHandler} className="delete-button"><i className="fas fa-minus-circle"></i></button>
             </div>
-            <div className={`task-details low ${todo.details}`}>
+            <div className={`task-details ${todo.priority} ${todo.completed ? "completed" : ""} ${todo.details}`}>
                 <div className="task-project">
                     Project:
                     <select id="select-project" className="select-project">
