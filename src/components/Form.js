@@ -10,10 +10,14 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
     };
     const submitTodoHandler = (e) => {
         e.preventDefault();
-        setTodos([
-            ...todos, {text: inputText, priority: 'low' , completed: false, deleted: false, details: "hidden", id: Math.random() * 100}
-        ]);
-        setInputText("")
+        if (inputText !== ""){
+            setTodos([
+                ...todos, {text: inputText, priority: 'low' , completed: false, deleted: false, details: "hidden", id: Math.random() * 100}
+            ]);
+            setInputText("")
+        }
+
+
     };
     const submitProjectHandler = (e) => {
         e.preventDefault();
