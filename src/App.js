@@ -53,6 +53,8 @@ function App() {
         todos={todos} 
         setTodos={setTodos} 
         filterPriority={filterPriority}
+        projects={projects}
+        setProjects={setProjects}
       />
       
     </div>

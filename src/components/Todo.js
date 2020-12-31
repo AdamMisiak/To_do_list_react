@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Todo = ({ text, todo, todos, setTodos }) => {
+const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
     const priorityHandler = () => {
         setTodos(todos.map((element) => {
             if (element.id === todo.id){
@@ -79,6 +79,9 @@ const Todo = ({ text, todo, todos, setTodos }) => {
                     Project:
                     <select id="select-project" className="select-project">
                         <option value="none">None</option>
+                        {projects.map((project) => (
+                            <option key={project.id} value={project.text}>{project.text}</option>
+                        ))}
                     </select>
                 </div>
             </div>
