@@ -8,7 +8,7 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [inputProject, setInputProject] = useState("");
   const [todos, setTodos] = useState([])
-  const [projects, setProjects] = useState([{text:"None", id:0.0}])
+  const [projects, setProjects] = useState([{text:"All", id:1.0}, {text:"None", id:0.0}])
   const [priority, setPriority] = useState("all")
   const [project, setProject] = useState("all")
   const [filterPriority, setFilterPriority] = useState([])
@@ -35,9 +35,9 @@ function App() {
     }
   }
 
-  const filterProjectHandler = () => {
+  // const filterProjectHandler = () => {
 
-  }
+  // }
 
   return (
     <div>
@@ -49,6 +49,7 @@ function App() {
         setTodos={setTodos}
         projects={projects}
         setProjects={setProjects}
+        setProject={setProject}
         inputText={inputText}
         inputProject={inputProject}
         setInputText={setInputText}

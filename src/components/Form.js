@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos, todos, setProjects, projects, setPriority }) => {
+const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos, todos, setProjects, projects, setPriority, setProject }) => {
     const inputTextHandler = (e) => {
         setInputText(e.target.value)
     };
@@ -28,6 +28,12 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
     };
     const priorityHandler = (e) => {
         setPriority(e.target.value)
+    };
+
+    const projectHandler = (e) => {
+        console.log(e.target.value)
+        console.log(projects)
+        setProject(e.target.value)
     };
 
     return (
@@ -60,10 +66,9 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
 
             <h3>Project filter:</h3>
             <div className="select project">
-                <select name="filter-project" className="filter-project">
-                    <option value="all">All</option>
+                <select onChange={projectHandler} name="filter-project" className="filter-project">
                     {projects.map((project) => (
-                            <option key={project.id} value={project.text}>{project.text}</option>
+                        <option key={project.id} value={project.text}>{project.text}</option>
                     ))}
                 </select>
             </div>
