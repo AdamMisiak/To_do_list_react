@@ -8,7 +8,7 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [inputProject, setInputProject] = useState("");
   const [todos, setTodos] = useState([])
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState([{text:"None", id:0.0}])
   const [priority, setPriority] = useState("all")
   const [filterPriority, setFilterPriority] = useState([])
 

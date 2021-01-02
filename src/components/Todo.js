@@ -63,6 +63,19 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
         );
     };
 
+    const projectHandler = (e) => {
+        setTodos(todos.map((element) => {  
+            if (element.id === todo.id){
+                return{
+                    ...element, project: e.target.value
+                };
+            }  
+            return element;
+        }
+        )
+        );
+    };
+    
     return(
         <div className="task">
             <div className={`task-box ${todo.priority} ${todo.completed ? "completed" : ""}`}>
@@ -77,8 +90,7 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
             <div className={`task-details ${todo.priority} ${todo.completed ? "completed" : ""} ${todo.details}`}>
                 <div className="task-project">
                     Project:
-                    <select id="select-project" className="select-project">
-                        <option value="none">None</option>
+                    <select onChange={projectHandler} id="select-project" className="select-project">
                         {projects.map((project) => (
                             <option key={project.id} value={project.text}>{project.text}</option>
                         ))}

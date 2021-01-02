@@ -12,7 +12,7 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
         e.preventDefault();
         if (inputText !== ""){
             setTodos([
-                ...todos, {text: inputText, priority: 'low' , completed: false, deleted: false, details: "hidden", id: Math.random() * 100}
+                ...todos, {text: inputText, priority: 'low' , completed: false, deleted: false, details: "hidden", project: "None", id: Math.random() * 100}
             ]);
             setInputText("")
         }
