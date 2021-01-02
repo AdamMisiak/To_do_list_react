@@ -10,7 +10,9 @@ function App() {
   const [todos, setTodos] = useState([])
   const [projects, setProjects] = useState([{text:"None", id:0.0}])
   const [priority, setPriority] = useState("all")
+  const [project, setProject] = useState("all")
   const [filterPriority, setFilterPriority] = useState([])
+  const [filterProject, setFilterProject] = useState([])
 
   useEffect(() => {
     filterPriorityHandler();
@@ -31,6 +33,10 @@ function App() {
         setFilterPriority(todos);
         break;
     }
+  }
+
+  const filterProjectHandler = () => {
+
   }
 
   return (

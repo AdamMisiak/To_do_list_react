@@ -62,7 +62,9 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
             <div className="select project">
                 <select name="filter-project" className="filter-project">
                     <option value="all">All</option>
-                    <option value="none">None</option>
+                    {projects.map((project) => (
+                            <option key={project.id} value={project.text}>{project.text}</option>
+                    ))}
                 </select>
             </div>
             </form>
