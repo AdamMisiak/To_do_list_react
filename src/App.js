@@ -21,28 +21,32 @@ function App() {
   const filterPriorityHandler = () => {
     switch(priority){
       case "low":
-        setFilterPriority(todos.filter(todo => todo.priority === "low"));
-        // if (project !== "All"){
-        //   setFilterPriority(filterPriority.filter(todo => todo.project === project));
-        // }
+        if (project !== "All"){
+          setFilterPriority(todos.filter(todo => todo.priority === "low" && todo.project === project));
+        } else if (project === "All"){
+          setFilterPriority(todos.filter(todo => todo.priority === "low"));
+        }
         break;
       case "medium":
-        setFilterPriority(todos.filter(todo => todo.priority === "medium"));
-        // if (project !== "All"){
-        //   setFilterPriority(filterPriority.filter(todo => todo.project === project));
-        // }
+        if (project !== "All"){
+          setFilterPriority(todos.filter(todo => todo.priority === "medium" && todo.project === project));
+        } else if (project === "All"){
+          setFilterPriority(todos.filter(todo => todo.priority === "medium"));
+        }
         break;
       case "high":
-        setFilterPriority(todos.filter(todo => todo.priority === "high"));
-        // if (project !== "All"){
-        //   setFilterPriority(filterPriority.filter(todo => todo.project === project));
-        // }
+        if (project !== "All"){
+          setFilterPriority(todos.filter(todo => todo.priority === "high" && todo.project === project));
+        } else if (project === "All"){
+          setFilterPriority(todos.filter(todo => todo.priority === "high"));
+        }
         break;
       default:
-        setFilterPriority(todos);
-        // if (project !== "All"){
-        //   setFilterPriority(filterPriority.filter(todo => todo.project === project));
-        // }
+        if (project !== "All"){
+          setFilterPriority(todos.filter(todo => todo.project === project));
+        } else if (project === "All"){
+          setFilterPriority(todos);
+        }
         break;
     }
   }
