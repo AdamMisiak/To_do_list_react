@@ -13,8 +13,14 @@ function App() {
   const [project, setProject] = useState("All")
   const [filterTasks, setFilterTasks] = useState([])
 
+
+  useEffect(() => {
+    getLocalTasks();
+  }, []);
+
   useEffect(() => {
     filterTasksHandler();
+    saveLocalTasks();
   }, [todos, priority, project]);
 
   const filterTasksHandler = () => {
@@ -48,7 +54,20 @@ function App() {
         }
         break;
     }
-  }
+  };
+
+  const saveLocalTasks = () => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+
+  const getLocalTasks = () => {
+    if (localStorage.getItem('todos') === null){
+      localStorage.setItem('todos', JSON.stringify([]));
+    } else {
+      let todosLocal = JSON.parse(localStorage.getItem('todos'));
+      setTodos(todosLocal)
+    }
+  };
 
   return (
     <div>
