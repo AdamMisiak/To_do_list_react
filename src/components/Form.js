@@ -31,8 +31,6 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
     };
 
     const projectHandler = (e) => {
-        console.log(e.target.value)
-        console.log(projects)
         setProject(e.target.value)
     };
 
@@ -67,6 +65,7 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
             <h3>Project filter:</h3>
             <div className="select project">
                 <select onChange={projectHandler} name="filter-project" className="filter-project">
+                    <option value="All">All</option>
                     {projects.map((project) => (
                         <option key={project.id} value={project.text}>{project.text}</option>
                     ))}

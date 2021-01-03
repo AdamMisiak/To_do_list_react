@@ -90,7 +90,7 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
             <div className={`task-details ${todo.priority} ${todo.completed ? "completed" : ""} ${todo.details}`}>
                 <div className="task-project">
                     Project:
-                    <select onChange={projectHandler} id="select-project" className="select-project">
+                    <select value={todo.project} onChange={projectHandler} id="select-project" className="select-project">
                         {projects.map((project) => (
                             <option key={project.id} value={project.text}>{project.text}</option>
                         ))}
