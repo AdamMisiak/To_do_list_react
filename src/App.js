@@ -16,11 +16,13 @@ function App() {
 
   useEffect(() => {
     getLocalTasks();
+    getLocalProjects();
   }, []);
 
   useEffect(() => {
     filterTasksHandler();
     saveLocalTasks();
+    saveLocalProjects();
   }, [todos, priority, project]);
 
   const filterTasksHandler = () => {
@@ -66,6 +68,19 @@ function App() {
     } else {
       let todosLocal = JSON.parse(localStorage.getItem('todos'));
       setTodos(todosLocal)
+    }
+  };
+
+  const saveLocalProjects = () => {
+    localStorage.setItem('projects', JSON.stringify(projects));
+  };
+
+  const getLocalProjects = () => {
+    if (localStorage.getItem('projects') === null){
+      localStorage.setItem('projects', JSON.stringify([]));
+    } else {
+      let projectsLocal = JSON.parse(localStorage.getItem('projects'));
+      setProjects(projectsLocal)
     }
   };
 
