@@ -12,7 +12,7 @@ function App() {
   const [projects, setProjects] = useState([{text:"None", id:0.0}])
   const [priority, setPriority] = useState("All")
   const [project, setProject] = useState("All")
-  const [filterTasks, setFilterTasks] = useState([])
+  const [filteredTasks, setFilteredTasks] = useState([])
 
 
   useEffect(() => {
@@ -30,30 +30,30 @@ function App() {
     switch(priority){
       case "low":
         if (project !== "All"){
-          setFilterTasks(tasks.filter(todo => todo.priority === "low" && todo.project === project));
+          setFilteredTasks(tasks.filter(todo => todo.priority === "low" && todo.project === project));
         } else if (project === "All"){
-          setFilterTasks(tasks.filter(todo => todo.priority === "low"));
+          setFilteredTasks(tasks.filter(todo => todo.priority === "low"));
         }
         break;
       case "medium":
         if (project !== "All"){
-          setFilterTasks(tasks.filter(todo => todo.priority === "medium" && todo.project === project));
+          setFilteredTasks(tasks.filter(todo => todo.priority === "medium" && todo.project === project));
         } else if (project === "All"){
-          setFilterTasks(tasks.filter(todo => todo.priority === "medium"));
+          setFilteredTasks(tasks.filter(todo => todo.priority === "medium"));
         }
         break;
       case "high":
         if (project !== "All"){
-          setFilterTasks(tasks.filter(todo => todo.priority === "high" && todo.project === project));
+          setFilteredTasks(tasks.filter(todo => todo.priority === "high" && todo.project === project));
         } else if (project === "All"){
-          setFilterTasks(tasks.filter(todo => todo.priority === "high"));
+          setFilteredTasks(tasks.filter(todo => todo.priority === "high"));
         }
         break;
       default:
         if (project !== "All"){
-          setFilterTasks(tasks.filter(todo => todo.project === project));
+          setFilteredTasks(tasks.filter(todo => todo.project === project));
         } else if (project === "All"){
-          setFilterTasks(tasks);
+          setFilteredTasks(tasks);
         }
         break;
     }
@@ -105,7 +105,7 @@ function App() {
       <TaskContainer 
         tasks={tasks} 
         setTasks={setTasks} 
-        filterTasks={filterTasks}
+        filteredTasks={filteredTasks}
         projects={projects}
         setProjects={setProjects}
       />

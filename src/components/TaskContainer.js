@@ -4,13 +4,13 @@ import Todo from "./Todo";
 const TaskContainer = ({
   tasks,
   setTasks,
-  filterTasks,
+  filteredTasks,
   projects,
   setProjects,
 }) => (
   <div className="task-container">
     <ul className="task-list">
-      {filterTasks.map((todo) => (
+      {filteredTasks.map((todo) => (
         <Todo
           tasks={tasks}
           setTasks={setTasks}
