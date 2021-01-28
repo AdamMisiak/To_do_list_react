@@ -26,14 +26,12 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
         );
     }
 
-    const deleteHandler = () => {
-        setTodos(todos.filter((element) => element.id !== todo.id));
-    };
+    const deleteHandler = () => setTodos(todos.filter((element) => element.id !== todo.id));
 
     const completeHandler = () => {
         setTodos(todos.map((element) => {
             if (element.id === todo.id){
-                return{
+                return {
                     ...element, completed: !element.completed
                 };
             }
@@ -45,16 +43,10 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
     const hiddenHandler = () => {
         setTodos(todos.map((element) => {    
             if (element.id === todo.id){
-                if (element.details === "hidden"){
-                    return{
-                        ...element, details: "unhidden"
+                    return {
+                        ...element,
+                        details: element.details === 'hidden' ? 'unhidden': 'hidden'
                     };
-                }
-                else if (element.details === "unhidden"){
-                    return{
-                        ...element, details: "hidden"
-                    };
-                }
                 }
                 return element;
             }
