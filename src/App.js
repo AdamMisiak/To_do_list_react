@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Form from './components/Form'
-import TodoList from './components/TodoList'
+import TaskContainer from './components/TaskContainer'
 
 function App() {
   const [inputText, setInputText] = useState("");
   const [inputProject, setInputProject] = useState("");
+
   const [todos, setTodos] = useState([])
   const [projects, setProjects] = useState([{text:"None", id:0.0}])
   const [priority, setPriority] = useState("All")
@@ -101,7 +102,7 @@ function App() {
         setInputProject={setInputProject}
         setPriority={setPriority}
       />
-      <TodoList 
+      <TaskContainer 
         todos={todos} 
         setTodos={setTodos} 
         filterTasks={filterTasks}

@@ -20,7 +20,6 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
                         ...element, priority: "low"
                     };
                 }
- 
             }
             return element;
         })
