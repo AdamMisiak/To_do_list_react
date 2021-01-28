@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
+const Todo = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
     const priorityHandler = () => {
-        setTodos(todos.map((element) => {
+        setTasks(tasks.map((element) => {
             if (element.id === todo.id){
                 if (element.priority === 'low'){
                     return{
@@ -26,10 +26,10 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
         );
     }
 
-    const deleteHandler = () => setTodos(todos.filter((element) => element.id !== todo.id));
+    const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== todo.id));
 
     const completeHandler = () => {
-        setTodos(todos.map((element) => {
+        setTasks(tasks.map((element) => {
             if (element.id === todo.id){
                 return {
                     ...element, completed: !element.completed
@@ -41,7 +41,7 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
     }
 
     const hiddenHandler = () => {
-        setTodos(todos.map((element) => {    
+        setTasks(tasks.map((element) => {    
             if (element.id === todo.id){
                     return {
                         ...element,
@@ -55,7 +55,7 @@ const Todo = ({ text, todo, todos, setTodos, projects, setProjects }) => {
     };
 
     const projectHandler = (e) => {
-        setTodos(todos.map((element) => {  
+        setTasks(tasks.map((element) => {  
             if (element.id === todo.id){
                 return{
                     ...element, project: e.target.value

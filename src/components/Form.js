@@ -1,20 +1,20 @@
 import React from 'react';
 
 
-const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos, todos, setProjects, projects, setPriority, setProject }) => {
-    const inputTextHandler = (e) => {
-        setInputText(e.target.value)
+const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks, tasks, setProjects, projects, setPriority, setProject }) => {
+    const inputTaskHandler = (e) => {
+        setInputTask(e.target.value)
     };
     const inputProjectHandler = (e) => {
         setInputProject(e.target.value)
     };
     const submitTodoHandler = (e) => {
         e.preventDefault();
-        if (inputText !== ""){
-            setTodos([
-                ...todos, {text: inputText, priority: 'low' , completed: false, deleted: false, details: "hidden", project: "None", id: Math.random() * 100}
+        if (inputTask !== ""){
+            setTasks([
+                ...tasks, {text: inputTask, priority: 'low' , completed: false, deleted: false, details: "hidden", project: "None", id: Math.random() * 100}
             ]);
-            setInputText("")
+            setInputTask("")
         }
 
 
@@ -37,7 +37,7 @@ const Form = ({ setInputText, inputText, setInputProject, inputProject, setTodos
     return (
         <div>
             <form className="task-form">
-                <input value={inputText} onChange={inputTextHandler} type="text" className="task-input" placeholder="Add task..."></input>
+                <input value={inputTask} onChange={inputTaskHandler} type="text" className="task-input" placeholder="Add task..."></input>
                 <button onClick={submitTodoHandler} className="task-button" type="submit">
                     <span title="Add new task"><i className="fas fa-plus-circle"></i></span>
                 </button>

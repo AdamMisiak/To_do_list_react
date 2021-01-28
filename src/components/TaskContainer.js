@@ -2,8 +2,8 @@ import React from "react";
 import Todo from "./Todo";
 
 const TaskContainer = ({
-  todos,
-  setTodos,
+  tasks,
+  setTasks,
   filterTasks,
   projects,
   setProjects,
@@ -12,8 +12,8 @@ const TaskContainer = ({
     <ul className="task-list">
       {filterTasks.map((todo) => (
         <Todo
-          todos={todos}
-          setTodos={setTodos}
+          tasks={tasks}
+          setTasks={setTasks}
           todo={todo}
           key={todo.id}
           text={todo.text}
