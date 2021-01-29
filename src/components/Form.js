@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks, tasks, setProjects, projects, setPriority, setProject }) => {
+const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks, tasks, setProjects, projects, setPriorityFilter, setProjectFilter }) => {
     const inputTaskHandler = (e) => {
         setInputTask(e.target.value)
     };
@@ -27,11 +27,11 @@ const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks
         setInputProject("")
     };
     const priorityHandler = (e) => {
-        setPriority(e.target.value)
+        setPriorityFilter(e.target.value)
     };
 
     const projectHandler = (e) => {
-        setProject(e.target.value)
+        setProjectFilter(e.target.value)
     };
 
     return (

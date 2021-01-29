@@ -10,8 +10,9 @@ function App() {
 
   const [tasks, setTasks] = useState([])
   const [projects, setProjects] = useState([{text:"None", id:0.0}])
-  const [priority, setPriority] = useState("All")
-  const [project, setProject] = useState("All")
+
+  const [priorityFilter, setPriorityFilter] = useState("All")
+  const [projectFilter, setProjectFilter] = useState("All")
   const [filteredTasks, setFilteredTasks] = useState([])
 
 
@@ -21,38 +22,38 @@ function App() {
   }, []);
 
   useEffect(() => {
-    filterTasksHandler();
+    filteredTasksHandler();
     saveLocalTasks();
     saveLocalProjects();
-  }, [tasks, priority, project]);
+  }, [tasks, priorityFilter, projectFilter]);
 
-  const filterTasksHandler = () => {
-    switch(priority){
+  const filteredTasksHandler = () => {
+    switch(priorityFilter){
       case "low":
-        if (project !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "low" && todo.project === project));
-        } else if (project === "All"){
+        if (projectFilter !== "All"){
+          setFilteredTasks(tasks.filter(todo => todo.priority === "low" && todo.project === projectFilter));
+        } else if (projectFilter === "All"){
           setFilteredTasks(tasks.filter(todo => todo.priority === "low"));
         }
         break;
       case "medium":
-        if (project !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "medium" && todo.project === project));
-        } else if (project === "All"){
+        if (projectFilter !== "All"){
+          setFilteredTasks(tasks.filter(todo => todo.priority === "medium" && todo.project === projectFilter));
+        } else if (projectFilter === "All"){
           setFilteredTasks(tasks.filter(todo => todo.priority === "medium"));
         }
         break;
       case "high":
-        if (project !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "high" && todo.project === project));
-        } else if (project === "All"){
+        if (projectFilter !== "All"){
+          setFilteredTasks(tasks.filter(todo => todo.priority === "high" && todo.project === projectFilter));
+        } else if (projectFilter === "All"){
           setFilteredTasks(tasks.filter(todo => todo.priority === "high"));
         }
         break;
       default:
-        if (project !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.project === project));
-        } else if (project === "All"){
+        if (projectFilter !== "All"){
+          setFilteredTasks(tasks.filter(todo => todo.project === projectFilter));
+        } else if (projectFilter === "All"){
           setFilteredTasks(tasks);
         }
         break;
@@ -95,12 +96,12 @@ function App() {
         setTasks={setTasks}
         projects={projects}
         setProjects={setProjects}
-        setProject={setProject}
+        setProjectFilter={setProjectFilter}
         inputTask={inputTask}
         inputProject={inputProject}
         setInputTask={setInputTask}
         setInputProject={setInputProject}
-        setPriority={setPriority}
+        setPriorityFilter={setPriorityFilter}
       />
       <TaskContainer 
         tasks={tasks} 
