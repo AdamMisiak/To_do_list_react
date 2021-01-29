@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Form from './components/Form'
-import TaskContainer from './components/TaskContainer'
+import TasksContainer from './components/TasksContainer'
 
 function App() {
   const [inputTask, setInputTask] = useState("");
@@ -61,14 +61,14 @@ function App() {
   };
 
   const saveLocalTasks = () => {
-    localStorage.setItem('todos', JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
   const getLocalTasks = () => {
-    if (localStorage.getItem('todos') === null){
-      localStorage.setItem('todos', JSON.stringify([]));
+    if (localStorage.getItem('tasks') === null){
+      localStorage.setItem('tasks', JSON.stringify([]));
     } else {
-      let todosLocal = JSON.parse(localStorage.getItem('todos'));
+      let todosLocal = JSON.parse(localStorage.getItem('tasks'));
       setTasks(todosLocal)
     }
   };
@@ -103,7 +103,7 @@ function App() {
         setInputProject={setInputProject}
         setPriorityFilter={setPriorityFilter}
       />
-      <TaskContainer 
+      <TasksContainer 
         tasks={tasks} 
         setTasks={setTasks} 
         filteredTasks={filteredTasks}

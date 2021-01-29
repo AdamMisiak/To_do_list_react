@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Todo = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
+const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
     const priorityHandler = () => {
         setTasks(tasks.map((element) => {
             if (element.id === todo.id){
@@ -93,4 +93,4 @@ const Todo = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
     )   
 }
 
-export default Todo;
+export default Task;

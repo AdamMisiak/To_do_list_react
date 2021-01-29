@@ -1,17 +1,17 @@
 import React from "react";
-import Todo from "./Todo";
+import Task from "./Task";
 
-const TaskContainer = ({
+const TasksContainer = ({
   tasks,
   setTasks,
   filteredTasks,
   projects,
   setProjects,
 }) => (
-  <div className="task-container">
-    <ul className="task-list">
+  <div className="tasks-container">
+    <ul className="tasks-list">
       {filteredTasks.map((todo) => (
-        <Todo
+        <Task
           tasks={tasks}
           setTasks={setTasks}
           todo={todo}
@@ -25,4 +25,4 @@ const TaskContainer = ({
   </div>
 );
 
-export default TaskContainer;
+export default TasksContainer;
