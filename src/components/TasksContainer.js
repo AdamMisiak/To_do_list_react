@@ -10,13 +10,13 @@ const TasksContainer = ({
 }) => (
   <div className="tasks-container">
     <ul className="tasks-list">
-      {filteredTasks.map((todo) => (
+      {filteredTasks.map((task) => (
         <Task
           tasks={tasks}
           setTasks={setTasks}
-          todo={todo}
-          key={todo.id}
-          text={todo.text}
+          task={task}
+          key={task.id}
+          text={task.text}
           projects={projects}
           setProjects={setProjects}
         />

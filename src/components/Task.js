@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
+const Task = ({ text, task, tasks, setTasks, projects, setProjects }) => {
     const priorityHandler = () => {
         setTasks(tasks.map((element) => {
-            if (element.id === todo.id){
+            if (element.id === task.id){
                 if (element.priority === 'low'){
                     return{
                         ...element, priority: "medium"
@@ -26,11 +26,11 @@ const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
         );
     }
 
-    const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== todo.id));
+    const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== task.id));
 
     const completeHandler = () => {
         setTasks(tasks.map((element) => {
-            if (element.id === todo.id){
+            if (element.id === task.id){
                 return {
                     ...element, completed: !element.completed
                 };
@@ -42,7 +42,7 @@ const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
 
     const hiddenHandler = () => {
         setTasks(tasks.map((element) => {    
-            if (element.id === todo.id){
+            if (element.id === task.id){
                     return {
                         ...element,
                         details: element.details === 'hidden' ? 'unhidden': 'hidden'
@@ -56,7 +56,7 @@ const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
 
     const projectHandler = (e) => {
         setTasks(tasks.map((element) => {  
-            if (element.id === todo.id){
+            if (element.id === task.id){
                 return{
                     ...element, project: e.target.value
                 };
@@ -69,7 +69,7 @@ const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
     
     return(
         <div className="task">
-            <div className={`task-box ${todo.priority} ${todo.completed ? "completed" : ""}`}>
+            <div className={`task-box ${task.priority} ${task.completed ? "completed" : ""}`}>
                 <li className="task-item">
                     {text}
                 </li>
@@ -78,10 +78,10 @@ const Task = ({ text, todo, tasks, setTasks, projects, setProjects }) => {
                 <button onClick={completeHandler} className="complete-button"><i className="fas fa-check-circle"></i></button>
                 <button onClick={deleteHandler} className="delete-button"><i className="fas fa-minus-circle"></i></button>
             </div>
-            <div className={`task-details ${todo.priority} ${todo.completed ? "completed" : ""} ${todo.details}`}>
+            <div className={`task-details ${task.priority} ${task.completed ? "completed" : ""} ${task.details}`}>
                 <div className="task-project">
                     Project:
-                    <select value={todo.project} onChange={projectHandler} id="select-project" className="select-project">
+                    <select value={task.project} onChange={projectHandler} id="select-project" className="select-project">
                         {projects.map((project) => (
                             <option key={project.id} value={project.text}>{project.text}</option>
                         ))}

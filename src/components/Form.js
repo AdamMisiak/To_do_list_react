@@ -8,11 +8,11 @@ const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks
     const inputProjectHandler = (e) => {
         setInputProject(e.target.value)
     };
-    const submitTodoHandler = (e) => {
+    const submitTaskHandler = (e) => {
         e.preventDefault();
         if (inputTask !== ""){
             setTasks([
-                ...tasks, {text: inputTask, priority: 'low' , completed: false, deleted: false, details: "hidden", project: "None", id: Math.random() * 100}
+                ...tasks, {text: inputTask, priority: 'low', project: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100}
             ]);
             setInputTask("")
         }
@@ -38,7 +38,7 @@ const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks
         <div>
             <form className="task-form">
                 <input value={inputTask} onChange={inputTaskHandler} type="text" className="task-input" placeholder="Add task..."></input>
-                <button onClick={submitTodoHandler} className="task-button" type="submit">
+                <button onClick={submitTaskHandler} className="task-button" type="submit">
                     <span title="Add new task"><i className="fas fa-plus-circle"></i></span>
                 </button>
             </form>
