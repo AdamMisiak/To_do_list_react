@@ -3,22 +3,21 @@ import Task from "./Task";
 
 const TasksContainer = ({
   tasks,
+  projects,
   setTasks,
   filteredTasks,
-  projects,
-  setProjects,
+
 }) => (
   <div className="tasks-container">
     <ul className="tasks-list">
       {filteredTasks.map((task) => (
         <Task
-          tasks={tasks}
-          setTasks={setTasks}
           task={task}
           key={task.id}
           text={task.text}
+          tasks={tasks}
           projects={projects}
-          setProjects={setProjects}
+          setTasks={setTasks}
         />
       ))}
     </ul>

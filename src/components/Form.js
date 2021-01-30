@@ -1,7 +1,18 @@
 import React from 'react';
 
 
-const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks, tasks, setProjects, projects, setPriorityFilter, setProjectFilter }) => {
+const Form = ({ 
+    tasks,
+    projects, 
+    inputTask, 
+    setInputTask,
+    inputProject,
+    setInputProject, 
+    setTasks, 
+    setProjects, 
+    setPriorityFilter, 
+    setProjectFilter 
+}) => {
     const inputTaskHandler = (e) => {
         setInputTask(e.target.value)
     };
@@ -10,9 +21,9 @@ const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks
     };
     const submitTaskHandler = (e) => {
         e.preventDefault();
-        if (inputTask !== ""){
+        if (inputTask !== "") {
             setTasks([
-                ...tasks, {text: inputTask, priority: 'low', project: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100}
+                ...tasks, { text: inputTask, priority: 'low', project: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100 }
             ]);
             setInputTask("")
         }
@@ -22,7 +33,7 @@ const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks
     const submitProjectHandler = (e) => {
         e.preventDefault();
         setProjects([
-            ...projects, {text: inputProject, id: Math.random() * 100}
+            ...projects, { text: inputProject, id: Math.random() * 100 }
         ]);
         setInputProject("")
     };
@@ -51,26 +62,26 @@ const Form = ({ setInputTask, inputTask, setInputProject, inputProject, setTasks
             </form>
 
             <form className="filters">
-            <h3>Priority filter:</h3>
+                <h3>Priority filter:</h3>
 
-            <div className="select priority">
-                <select onChange={priorityHandler} name="filter-priority" className="filter-priority"  placeholder="Add project...">
-                    <option value="all">All</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
-            </div>
+                <div className="select priority">
+                    <select onChange={priorityHandler} name="filter-priority" className="filter-priority" placeholder="Add project...">
+                        <option value="all">All</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
 
-            <h3>Project filter:</h3>
-            <div className="select project">
-                <select onChange={projectHandler} name="filter-project" className="filter-project">
-                    <option value="All">All</option>
-                    {projects.map((project) => (
-                        <option key={project.id} value={project.text}>{project.text}</option>
-                    ))}
-                </select>
-            </div>
+                <h3>Project filter:</h3>
+                <div className="select project">
+                    <select onChange={projectHandler} name="filter-project" className="filter-project">
+                        <option value="All">All</option>
+                        {projects.map((project) => (
+                            <option key={project.id} value={project.text}>{project.text}</option>
+                        ))}
+                    </select>
+                </div>
             </form>
         </div>
     );

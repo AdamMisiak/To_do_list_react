@@ -93,24 +93,22 @@ function App() {
       </header>
       <Form
         tasks={tasks}
-        setTasks={setTasks}
         projects={projects}
-        setProjects={setProjects}
-        setProjectFilter={setProjectFilter}
         inputTask={inputTask}
-        inputProject={inputProject}
         setInputTask={setInputTask}
+        inputProject={inputProject}
         setInputProject={setInputProject}
+        setTasks={setTasks}
+        setProjects={setProjects}
         setPriorityFilter={setPriorityFilter}
+        setProjectFilter={setProjectFilter}
       />
       <TasksContainer 
         tasks={tasks} 
+        projects={projects}
         setTasks={setTasks} 
         filteredTasks={filteredTasks}
-        projects={projects}
-        setProjects={setProjects}
-      />
-      
+      />    
     </div>
   );
 }

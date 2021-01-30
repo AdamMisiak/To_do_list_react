@@ -1,7 +1,13 @@
 import React from 'react';
 
 
-const Task = ({ text, task, tasks, setTasks, projects, setProjects }) => {
+const Task = ({ 
+    task,
+    text, 
+    tasks, 
+    projects,
+    setTasks, 
+}) => {
     const priorityHandler = () => {
         setTasks(tasks.map((element) => {
             if (element.id === task.id){
@@ -81,7 +87,7 @@ const Task = ({ text, task, tasks, setTasks, projects, setProjects }) => {
             <div className={`task-details ${task.priority} ${task.completed ? "completed" : ""} ${task.details}`}>
                 <div className="task-project">
                     Project:
-                    <select value={task.project} onChange={projectHandler} id="select-project" className="select-project">
+                    <select value={task.project} onChange={projectHandler} className="select-project">
                         {projects.map((project) => (
                             <option key={project.id} value={project.text}>{project.text}</option>
                         ))}
