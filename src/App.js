@@ -31,28 +31,28 @@ function App() {
     switch(priorityFilter){
       case "low":
         if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "low" && todo.project === projectFilter));
+          setFilteredTasks(tasks.filter(task => task.priority === "low" && task.project === projectFilter));
         } else if (projectFilter === "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "low"));
+          setFilteredTasks(tasks.filter(task => task.priority === "low"));
         }
         break;
       case "medium":
         if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "medium" && todo.project === projectFilter));
+          setFilteredTasks(tasks.filter(task => task.priority === "medium" && task.project === projectFilter));
         } else if (projectFilter === "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "medium"));
+          setFilteredTasks(tasks.filter(task => task.priority === "medium"));
         }
         break;
       case "high":
         if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "high" && todo.project === projectFilter));
+          setFilteredTasks(tasks.filter(task => task.priority === "high" && task.project === projectFilter));
         } else if (projectFilter === "All"){
-          setFilteredTasks(tasks.filter(todo => todo.priority === "high"));
+          setFilteredTasks(tasks.filter(task => task.priority === "high"));
         }
         break;
       default:
         if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(todo => todo.project === projectFilter));
+          setFilteredTasks(tasks.filter(task => task.project === projectFilter));
         } else if (projectFilter === "All"){
           setFilteredTasks(tasks);
         }
@@ -68,8 +68,8 @@ function App() {
     if (localStorage.getItem('tasks') === null){
       localStorage.setItem('tasks', JSON.stringify([]));
     } else {
-      let todosLocal = JSON.parse(localStorage.getItem('tasks'));
-      setTasks(todosLocal)
+      let tasksLocal = JSON.parse(localStorage.getItem('tasks'));
+      setTasks(tasksLocal)
     }
   };
 
