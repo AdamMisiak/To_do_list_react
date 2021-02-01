@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Form.css'
 
 
 const Form = ({ 
@@ -63,7 +64,6 @@ const Form = ({
 
             <form className="filters">
                 <h3>Priority filter:</h3>
-
                 <div className="select priority">
                     <select onChange={priorityHandler} name="filter-priority" className="filter-priority" placeholder="Add project...">
                         <option value="all">All</option>
