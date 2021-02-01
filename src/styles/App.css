@@ -30,31 +30,7 @@ header{
 
 
 
- .task-box,
- .task-details{
-     border-left-width: 4px;
- }
-
- .task-box{
-     margin: 0.3rem;
-     margin-bottom: 0.1rem;
-     padding-bottom: 0rem;
-     font-size: 1.3rem;
- }
-
- .task-details{
-     padding: 0 0.3rem;
-     margin: 0.1rem 0.3rem 0.3rem 0.3rem;
-     font-size: 1.0rem;
- }
-
- .delete-button,
- .complete-button,
- .priority-button,
- .info-button{
-     padding: 0.3rem;
-     font-size: 1.2rem;
- }
+ 
 
  .select{
      margin: 0.8rem;
@@ -70,11 +46,7 @@ header{
 
 
 
- 
- .select-project{
-     width: 4rem;
-     font-size: 0.9rem;
- }
+
 }
 
 @media only screen and (max-width:720px){
@@ -86,31 +58,7 @@ header{
 
 
 
- .task-box,
- .task-details{
-     border-left-width: 3px;
- }
-
- .task-box{
-     margin: 0.2rem;
-     margin-bottom: 0.1rem;
-     padding-bottom: 0rem;
-     font-size: 0.9rem;
- }
-
- .task-details{
-     padding: 0 0.3rem;
-     margin: 0.1rem 0.2rem 0.2rem 0.2rem;
-     font-size: 0.7rem;
- }
-
- .delete-button,
- .complete-button,
- .priority-button,
- .info-button{
- padding: 0.2rem;
- font-size: 0.9rem;
- }
+ 
 
  .select{
      margin: 0.6rem;
@@ -126,10 +74,7 @@ header{
 
 
  
- .select-project{
-     width: 3rem;
-     font-size: 0.7rem;
- }
+
 }
 
 
