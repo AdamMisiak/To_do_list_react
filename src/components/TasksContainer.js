@@ -1,12 +1,12 @@
 import React from "react";
 import Task from "./Task";
+import '../styles/TasksContainer.css'
 
 const TasksContainer = ({
   tasks,
   projects,
   setTasks,
   filteredTasks,
-
 }) => (
   <div className="tasks-container">
     <ul className="tasks-list">

@@ -19,53 +19,6 @@ header{
  font-size: 1.5rem;
 }
 
-/* TASKS CONTAINER/LIST STYLES */
-.tasks-container{
- display: flex;
- justify-content: center;
- align-items: center;
-}
-
-.tasks-list{
- min-width: 31%;
- max-width: 40%;
- list-style: none;
-}
-
-
-/* TASK ELEMENTS STYLES */
-
-
-/* TASK TEXT/ITEM STYLES */
-
-
-
-/* TASK DETAILS STYLES */
-
-
-
-
-
-/* PRIORITY LEVELS STYLES */
-
-
-
-/* BUTTONS STYLES */
-
-
-/* ICONS STYLES */
-
-
-
-/* DONE TASK STYLES */
-
-
-
-
-/* SELECTING PROJECT OR TASK-PARTNER TO TASK */
-
-
-
 /* MOBILE STYLES */
 @media only screen and (max-width:1024px){
  header{
@@ -73,25 +26,9 @@ header{
      font-size: 1.3rem;
  }
 
- .task-input,
- .task-button,
- .project-input,
- .project-button {
-     padding: 0.3rem;
-     font-size: 1.5rem;
- }
 
- .project-input,
- .project-button {
-     font-size: 1.0rem;
- }
- 
- .task-form{
-     padding: 0.3rem;
-     font-size: 1.5rem;
-     min-height: 7vh;
-     margin-bottom: 0.3rem;
- }
+
+
 
  .task-box,
  .task-details{
@@ -131,17 +68,8 @@ header{
      font-size: 0.9rem;
  }
 
- .filters{
-     padding: 0.1rem;
-     margin-bottom: 0.3rem;
- }
- 
- .filter-project,
- .filter-priority{
-     width: 4rem;
-     padding: 0.3rem;
-     font-size: 0.9rem;
- }
+
+
  
  .select-project{
      width: 4rem;
@@ -155,25 +83,8 @@ header{
      font-size: 1.0rem;
  }
 
- .task-input,
- .task-button,
- .project-input,
- .project-button {
-     padding: 0.3rem;
-     font-size: 1.1rem;
- }
 
- .project-input,
- .project-button {
-     font-size: 0.8rem;
- }
- 
- .task-form{
-     padding: 0.3rem;
-     font-size: 1.2rem;
-     min-height: 5vh;
-     margin-bottom: 0.2rem;
- }
+
 
  .task-box,
  .task-details{
@@ -213,17 +124,7 @@ header{
      font-size: 0.65rem;
  }
 
- .filters{
-     padding: 0.1rem;
-     margin-bottom: 0.2rem;
- }
- 
- .filter-project,
- .filter-priority{
-     width: 3rem;
-     padding: 0.2rem;
-     font-size: 0.7rem;
- }
+
  
  .select-project{
      width: 3rem;
