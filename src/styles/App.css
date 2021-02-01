@@ -19,62 +19,26 @@ header{
  font-size: 1.5rem;
 }
 
-/* MOBILE STYLES */
 @media only screen and (max-width:1024px){
- header{
-     min-height: 12vh;
-     font-size: 1.3rem;
- }
+    header{
+        min-height: 12vh;
+        font-size: 1.3rem;
+    }
 
-
-
-
-
- 
-
- .select{
-     margin: 0.8rem;
- }
- 
- .select::after{
-     padding: 0.3rem;
- }
-
- h3{
-     font-size: 0.9rem;
- }
-
-
-
-
+    h3{
+        font-size: 0.9rem;
+    }
 }
 
 @media only screen and (max-width:720px){
- header{
-     min-height: 10vh;
-     font-size: 1.0rem;
- }
+    header{
+        min-height: 10vh;
+        font-size: 1.0rem;
+    }
 
-
-
-
- 
-
- .select{
-     margin: 0.6rem;
- }
- 
- .select::after{
-     padding: 0.2rem;
- }
-
- h3{
-     font-size: 0.65rem;
- }
-
-
- 
-
+    h3{
+        font-size: 0.65rem;
+    }
 }
 
 

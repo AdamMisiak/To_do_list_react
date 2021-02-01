@@ -120,6 +120,14 @@ select{
         padding: 0.1rem;
         margin-bottom: 0.3rem;
     }   
+
+    .select{
+        margin: 0.8rem;
+    }
+    
+    .select::after{
+        padding: 0.3rem;
+    }
       
     .filter-project,
     .filter-priority{
@@ -153,6 +161,14 @@ select{
     .filters{
         padding: 0.1rem;
         margin-bottom: 0.2rem;
+    }
+
+    .select{
+        margin: 0.6rem;
+    }
+    
+    .select::after{
+        padding: 0.2rem;
     }
     
     .filter-project,
