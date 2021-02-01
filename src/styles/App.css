@@ -34,141 +34,36 @@ header{
 
 
 /* TASK ELEMENTS STYLES */
-.task-box,
-.task-details{
- background: white;
- border-left: solid;
- border-left-width: 6px;
- transition: all 0.4s ease;
-}
 
-.task-box{
- margin: 0.5rem;
- margin-bottom: 0.1rem;
- padding-bottom: 0rem;
- font-size: 1.8rem;
- overflow: hidden;
- display: flex;
- justify-content: space-between;
- align-items: center;
-}
 
 /* TASK TEXT/ITEM STYLES */
-.task-item{
- padding: 0.5rem;
- max-width: 80%;
- overflow: hidden;
- background: white;
- display: flex;
- justify-content: space-between;
- align-items: center;
- flex: 1;
-}
+
 
 
 /* TASK DETAILS STYLES */
-.task-details{
- display: block;
- max-height: 26px;
- padding: 0 0.5rem;
- margin: 0.1rem 0.5rem 0.5rem 0.5rem;
- min-width: 31%;
- font-size: 1.4rem;
- color: rgb(117, 117, 117);
- border-left-color:  rgb(117, 117, 117);
- overflow: hidden;
-}
 
-.hidden{
-    max-height: 0px;
-}
 
-.unhidden{
-    max-height: 26px;
-}
+
 
 
 /* PRIORITY LEVELS STYLES */
-.low{
- border-left-color: rgb(42, 148, 26);
-}
 
-.medium{
- border-left-color: rgb(230, 199, 28);
-}
-
-.high{
- border-left-color: rgb(197, 43, 22);
-}
 
 
 /* BUTTONS STYLES */
-.delete-button,
-.complete-button,
-.priority-button,
-.info-button{
- padding: 0.5rem;
- font-size: 1.7rem;
- display: inline;
- border: none;
- outline:none;
- background-color: white;
- cursor: pointer;
- transition: all 0.4s;
- color: rgb(61, 90, 128);
-}
-
-.delete-button:hover{
- color: rgb(197, 43, 22);
-}
-
-.complete-button:hover{
- color: rgb(42, 148, 26);
-}
-
-.priority-button:hover{
- color: rgb(230, 199, 28);
-}
-
-.info-button:hover{
- color: rgb(163, 164, 165);
-}
 
 
 /* ICONS STYLES */
-.fa-minus-circle,
-.fa-check-circle,
-.fa-layer-group,
-.fa-info-circle{
- pointer-events: none;
-}
+
 
 
 /* DONE TASK STYLES */
-.completed{
- text-decoration: line-through;
- opacity: 0.6;
-}
-
-/* DELETED TASK STYLES */
-.deleted{
- transform: translateX(3rem);
- opacity: 0;
-}
 
 
 
 
 /* SELECTING PROJECT OR TASK-PARTNER TO TASK */
-.select-project{
- color: rgb(61, 90, 128);
- background-color: rgb(255, 255, 255);
- width: 6rem;
- cursor: pointer;
- font-size: 1.2rem;
- position: relative;
- overflow: hidden;
-}
+
 
 
 /* MOBILE STYLES */
