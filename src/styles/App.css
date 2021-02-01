@@ -19,28 +19,6 @@ header{
  font-size: 1.5rem;
 }
 
-
-/* FORM STYLES */
-
-
-
-/* INPUTS AND BUTTONS STYLES */
-.task-input,
-.task-button,
-.project-input,
-.project-button {
- padding: 0.5rem;
- font-size: 2rem;
- border: none;
- outline: none;
- background-color: white;
-}
-
-.project-input,
-.project-button {
- font-size: 1.2rem;
-}
-
 /* TASKS CONTAINER/LIST STYLES */
 .tasks-container{
  display: flex;
@@ -178,50 +156,8 @@ header{
  opacity: 0;
 }
 
-/* FILTERING BOX STYLES */
-select{
- outline: none;
- border: none;
-}
 
-/* FILTERING STYLES */
-.select{
- margin: 1rem;
- position: relative;
- overflow: hidden;
- display: inline;
-}
 
-.select::after{
- content: "\25BC";
- position: absolute;
- color: rgb(61, 90, 128);
- top: 0;
- right: 0;
- padding: 0.5rem;
- pointer-events: none;
-}
-
-.select:hover::after{
- color: rgb(152, 193, 217);
- transition: all 0.4s;
-}
-
-.filters{
- padding: 0.1rem;
- margin-bottom: 0.5rem;
-}
-
-.filter-project,
-.filter-priority{
- appearance: none;
- color: rgb(61, 90, 128);
- background-color: white;
- width: 6rem;
- cursor: pointer;
- padding: 0.5rem;
- font-size: 1rem;
-}
 
 /* SELECTING PROJECT OR TASK-PARTNER TO TASK */
 .select-project{
