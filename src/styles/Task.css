@@ -108,7 +108,7 @@
     max-height: 26px;
 }
 
-.select-project{
+.select-group{
     color: rgb(61, 90, 128);
     background-color: rgb(255, 255, 255);
     width: 6rem;
@@ -145,7 +145,7 @@
         font-size: 1.2rem;
     }
 
-    .select-project{
+    .select-group{
         width: 4rem;
         font-size: 0.9rem;
     }
@@ -178,7 +178,7 @@
         font-size: 0.9rem;
     }
 
-    .select-project{
+    .select-group{
         width: 3rem;
         font-size: 0.7rem;
     }

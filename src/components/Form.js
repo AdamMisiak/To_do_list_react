@@ -55,9 +55,9 @@ const Form = ({
                 </button>
             </form>
 
-            <form className="project-form">
-                <input value={inputGroup} onChange={inputGroupHandler} type="text" className="project-input" placeholder="Add project..."></input>
-                <button onClick={submitGroupHandler} className="project-button" type="submit">
+            <form className="group-form">
+                <input value={inputGroup} onChange={inputGroupHandler} type="text" className="group-input" placeholder="Add group..."></input>
+                <button onClick={submitGroupHandler} className="group-button" type="submit">
                     <i className="fas fa-plus-circle"></i>
                 </button>
             </form>
@@ -65,7 +65,7 @@ const Form = ({
             <form className="filters">
                 <h3>Priority filter:</h3>
                 <div className="select priority">
-                    <select onChange={priorityHandler} name="filter-priority" className="filter-priority" placeholder="Add project...">
+                    <select onChange={priorityHandler} name="filter-priority" className="filter-priority" placeholder="Add group...">
                         <option value="all">All</option>
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
@@ -74,8 +74,8 @@ const Form = ({
                 </div>
 
                 <h3>Group filter:</h3>
-                <div className="select project">
-                    <select onChange={groupHandler} name="filter-project" className="filter-project">
+                <div className="select group">
+                    <select onChange={groupHandler} name="filter-group" className="filter-group">
                         <option value="All">All</option>
                         {groups.map((group) => (
                             <option key={group.id} value={group.text}>{group.text}</option>

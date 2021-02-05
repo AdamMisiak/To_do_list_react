@@ -8,12 +8,12 @@
     align-items: center;
 }
    
-.project-form{
+.group-form{
     padding: 0.5rem;
     margin-bottom: 0.5rem;
 }
    
-.project-form,
+.group-form,
 .filters{
     display: flex;
     justify-content: center;
@@ -34,8 +34,8 @@
 
 .task-input,
 .task-button,
-.project-input,
-.project-button {
+.group-input,
+.group-button {
     padding: 0.5rem;
     border: none;
     outline: none;
@@ -47,8 +47,8 @@
     font-size: 2rem;
 }
 
-.project-input,
-.project-button {
+.group-input,
+.group-button {
     font-size: 1.2rem;
 }
 
@@ -84,7 +84,7 @@ select{
     transition: all 0.4s;
 }
    
-.filter-project,
+.filter-group,
 .filter-priority{
  appearance: none;
  color: rgb(61, 90, 128);
@@ -105,14 +105,14 @@ select{
 
     .task-input,
     .task-button,
-    .project-input,
-    .project-button {
+    .group-input,
+    .group-button {
         padding: 0.3rem;
         font-size: 1.5rem;
     }
 
-    .project-input,
-    .project-button {
+    .group-input,
+    .group-button {
         font-size: 1.0rem;
     }
 
@@ -129,7 +129,7 @@ select{
         padding: 0.3rem;
     }
       
-    .filter-project,
+    .filter-group,
     .filter-priority{
         width: 4rem;
         padding: 0.3rem;
@@ -147,14 +147,14 @@ select{
 
     .task-input,
     .task-button,
-    .project-input,
-    .project-button {
+    .group-input,
+    .group-button {
         padding: 0.3rem;
         font-size: 1.1rem;
     }
    
-    .project-input,
-    .project-button {
+    .group-input,
+    .group-button {
         font-size: 0.8rem;
     }
 
@@ -171,7 +171,7 @@ select{
         padding: 0.2rem;
     }
     
-    .filter-project,
+    .filter-group,
     .filter-priority{
         width: 3rem;
         padding: 0.2rem;

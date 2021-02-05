@@ -81,8 +81,8 @@ function App() {
     if (localStorage.getItem('groups') === null){
       localStorage.setItem('groups', JSON.stringify([]));
     } else {
-      let projectsLocal = JSON.parse(localStorage.getItem('groups'));
-      setGroups(projectsLocal)
+      let groupsLocal = JSON.parse(localStorage.getItem('groups'));
+      setGroups(groupsLocal)
     }
   };
 

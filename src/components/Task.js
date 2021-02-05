@@ -86,9 +86,9 @@ const Task = ({
                 <button onClick={deleteHandler} className="delete-button"><i className="fas fa-minus-circle"></i></button>
             </div>
             <div className={`task-details ${task.priority} ${task.completed ? "completed" : ""} ${task.details}`}>
-                <div className="task-project">
+                <div className="task-group">
                     Group:
-                    <select value={task.group} onChange={groupHandler} className="select-project">
+                    <select value={task.group} onChange={groupHandler} className="select-group">
                         {groups.map((group) => (
                             <option key={group.id} value={group.text}>{group.text}</option>
                         ))}
