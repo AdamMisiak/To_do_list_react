@@ -6,54 +6,54 @@ import TasksContainer from './components/TasksContainer'
 
 function App() {
   const [inputTask, setInputTask] = useState("");
-  const [inputProject, setInputProject] = useState("");
+  const [inputGroup, setInputGroup] = useState("");
 
   const [tasks, setTasks] = useState([])
-  const [projects, setProjects] = useState([{text:"None", id:0.0}])
+  const [groups, setGroups] = useState([{text:"None", id:0.0}])
 
   const [priorityFilter, setPriorityFilter] = useState("All")
-  const [projectFilter, setProjectFilter] = useState("All")
+  const [groupFilter, setGroupFilter] = useState("All")
   const [filteredTasks, setFilteredTasks] = useState([])
 
 
   useEffect(() => {
     getLocalTasks();
-    getLocalProjects();
+    getLocalGroups();
   }, []);
 
   useEffect(() => {
     filteredTasksHandler();
     saveLocalTasks();
-    saveLocalProjects();
-  }, [tasks, priorityFilter, projectFilter]);
+    saveLocalGroups();
+  }, [tasks, priorityFilter, groupFilter]);
 
   const filteredTasksHandler = () => {
     switch(priorityFilter){
       case "low":
-        if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "low" && task.project === projectFilter));
-        } else if (projectFilter === "All"){
+        if (groupFilter !== "All"){
+          setFilteredTasks(tasks.filter(task => task.priority === "low" && task.group === groupFilter));
+        } else if (groupFilter === "All"){
           setFilteredTasks(tasks.filter(task => task.priority === "low"));
         }
         break;
       case "medium":
-        if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "medium" && task.project === projectFilter));
-        } else if (projectFilter === "All"){
+        if (groupFilter !== "All"){
+          setFilteredTasks(tasks.filter(task => task.priority === "medium" && task.group === groupFilter));
+        } else if (groupFilter === "All"){
           setFilteredTasks(tasks.filter(task => task.priority === "medium"));
         }
         break;
       case "high":
-        if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "high" && task.project === projectFilter));
-        } else if (projectFilter === "All"){
+        if (groupFilter !== "All"){
+          setFilteredTasks(tasks.filter(task => task.priority === "high" && task.group === groupFilter));
+        } else if (groupFilter === "All"){
           setFilteredTasks(tasks.filter(task => task.priority === "high"));
         }
         break;
       default:
-        if (projectFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.project === projectFilter));
-        } else if (projectFilter === "All"){
+        if (groupFilter !== "All"){
+          setFilteredTasks(tasks.filter(task => task.group === groupFilter));
+        } else if (groupFilter === "All"){
           setFilteredTasks(tasks);
         }
         break;
@@ -73,16 +73,16 @@ function App() {
     }
   };
 
-  const saveLocalProjects = () => {
-    localStorage.setItem('projects', JSON.stringify(projects));
+  const saveLocalGroups = () => {
+    localStorage.setItem('groups', JSON.stringify(groups));
   };
 
-  const getLocalProjects = () => {
-    if (localStorage.getItem('projects') === null){
-      localStorage.setItem('projects', JSON.stringify([]));
+  const getLocalGroups = () => {
+    if (localStorage.getItem('groups') === null){
+      localStorage.setItem('groups', JSON.stringify([]));
     } else {
-      let projectsLocal = JSON.parse(localStorage.getItem('projects'));
-      setProjects(projectsLocal)
+      let projectsLocal = JSON.parse(localStorage.getItem('groups'));
+      setGroups(projectsLocal)
     }
   };
 
@@ -93,19 +93,19 @@ function App() {
       </header>
       <Form
         tasks={tasks}
-        projects={projects}
+        groups={groups}
         inputTask={inputTask}
         setInputTask={setInputTask}
-        inputProject={inputProject}
-        setInputProject={setInputProject}
+        inputGroup={inputGroup}
+        setInputGroup={setInputGroup}
         setTasks={setTasks}
-        setProjects={setProjects}
+        setGroups={setGroups}
         setPriorityFilter={setPriorityFilter}
-        setProjectFilter={setProjectFilter}
+        setGroupFilter={setGroupFilter}
       />
       <TasksContainer 
         tasks={tasks} 
-        projects={projects}
+        groups={groups}
         setTasks={setTasks} 
         filteredTasks={filteredTasks}
       />    

@@ -4,46 +4,46 @@ import '../styles/Form.css'
 
 const Form = ({ 
     tasks,
-    projects, 
+    groups, 
     inputTask, 
     setInputTask,
-    inputProject,
-    setInputProject, 
+    inputGroup,
+    setInputGroup, 
     setTasks, 
-    setProjects, 
+    setGroups, 
     setPriorityFilter, 
-    setProjectFilter 
+    setGroupFilter 
 }) => {
     const inputTaskHandler = (e) => {
         setInputTask(e.target.value)
     };
-    const inputProjectHandler = (e) => {
-        setInputProject(e.target.value)
+    const inputGroupHandler = (e) => {
+        setInputGroup(e.target.value)
     };
     const submitTaskHandler = (e) => {
         e.preventDefault();
         if (inputTask !== "") {
             setTasks([
-                ...tasks, { text: inputTask, priority: 'low', project: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100 }
+                ...tasks, { text: inputTask, priority: 'low', group: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100 }
             ]);
             setInputTask("")
         }
 
 
     };
-    const submitProjectHandler = (e) => {
+    const submitGroupHandler = (e) => {
         e.preventDefault();
-        setProjects([
-            ...projects, { text: inputProject, id: Math.random() * 100 }
+        setGroups([
+            ...groups, { text: inputGroup, id: Math.random() * 100 }
         ]);
-        setInputProject("")
+        setInputGroup("")
     };
     const priorityHandler = (e) => {
         setPriorityFilter(e.target.value)
     };
 
-    const projectHandler = (e) => {
-        setProjectFilter(e.target.value)
+    const groupHandler = (e) => {
+        setGroupFilter(e.target.value)
     };
 
     return (
@@ -56,8 +56,8 @@ const Form = ({
             </form>
 
             <form className="project-form">
-                <input value={inputProject} onChange={inputProjectHandler} type="text" className="project-input" placeholder="Add project..."></input>
-                <button onClick={submitProjectHandler} className="project-button" type="submit">
+                <input value={inputGroup} onChange={inputGroupHandler} type="text" className="project-input" placeholder="Add project..."></input>
+                <button onClick={submitGroupHandler} className="project-button" type="submit">
                     <i className="fas fa-plus-circle"></i>
                 </button>
             </form>
@@ -73,12 +73,12 @@ const Form = ({
                     </select>
                 </div>
 
-                <h3>Project filter:</h3>
+                <h3>Group filter:</h3>
                 <div className="select project">
-                    <select onChange={projectHandler} name="filter-project" className="filter-project">
+                    <select onChange={groupHandler} name="filter-project" className="filter-project">
                         <option value="All">All</option>
-                        {projects.map((project) => (
-                            <option key={project.id} value={project.text}>{project.text}</option>
+                        {groups.map((group) => (
+                            <option key={group.id} value={group.text}>{group.text}</option>
                         ))}
                     </select>
                 </div>

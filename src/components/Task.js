@@ -6,7 +6,7 @@ const Task = ({
     task,
     text, 
     tasks, 
-    projects,
+    groups,
     setTasks, 
 }) => {
     const priorityHandler = () => {
@@ -61,11 +61,11 @@ const Task = ({
         );
     };
 
-    const projectHandler = (e) => {
+    const groupHandler = (e) => {
         setTasks(tasks.map((element) => {  
             if (element.id === task.id){
                 return{
-                    ...element, project: e.target.value
+                    ...element, group: e.target.value
                 };
             }  
             return element;
@@ -87,10 +87,10 @@ const Task = ({
             </div>
             <div className={`task-details ${task.priority} ${task.completed ? "completed" : ""} ${task.details}`}>
                 <div className="task-project">
-                    Project:
-                    <select value={task.project} onChange={projectHandler} className="select-project">
-                        {projects.map((project) => (
-                            <option key={project.id} value={project.text}>{project.text}</option>
+                    Group:
+                    <select value={task.group} onChange={groupHandler} className="select-project">
+                        {groups.map((group) => (
+                            <option key={group.id} value={group.text}>{group.text}</option>
                         ))}
                     </select>
                 </div>

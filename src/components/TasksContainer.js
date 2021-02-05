@@ -4,7 +4,7 @@ import '../styles/TasksContainer.css'
 
 const TasksContainer = ({
   tasks,
-  projects,
+  groups,
   setTasks,
   filteredTasks,
 }) => (
@@ -16,7 +16,7 @@ const TasksContainer = ({
           key={task.id}
           text={task.text}
           tasks={tasks}
-          projects={projects}
+          groups={groups}
           setTasks={setTasks}
         />
       ))}
