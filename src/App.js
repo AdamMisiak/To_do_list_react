@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import store from './store'
 import './styles/App.css';
 
 import Form from './components/Form'
@@ -87,29 +89,31 @@ function App() {
   };
 
   return (
-    <div>
-      <header>
-        <h1>To Do App</h1>
-      </header>
-      <Form
-        tasks={tasks}
-        groups={groups}
-        inputTask={inputTask}
-        setInputTask={setInputTask}
-        inputGroup={inputGroup}
-        setInputGroup={setInputGroup}
-        setTasks={setTasks}
-        setGroups={setGroups}
-        setPriorityFilter={setPriorityFilter}
-        setGroupFilter={setGroupFilter}
-      />
-      <TasksContainer 
-        tasks={tasks} 
-        groups={groups}
-        setTasks={setTasks} 
-        filteredTasks={filteredTasks}
-      />    
-    </div>
+    <Provider store={store}>
+      <div>
+            <header>
+              <h1>To Do App</h1>
+            </header>
+            <Form
+              tasks={tasks}
+              groups={groups}
+              inputTask={inputTask}
+              setInputTask={setInputTask}
+              inputGroup={inputGroup}
+              setInputGroup={setInputGroup}
+              setTasks={setTasks}
+              setGroups={setGroups}
+              setPriorityFilter={setPriorityFilter}
+              setGroupFilter={setGroupFilter}
+            />
+            <TasksContainer 
+              tasks={tasks} 
+              groups={groups}
+              setTasks={setTasks} 
+              filteredTasks={filteredTasks}
+            />    
+          </div>
+    </Provider>
   );
 }
 
