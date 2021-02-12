@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../actions/tasks';
 import '../styles/Form.css'
 
 
@@ -14,6 +16,8 @@ const Form = ({
     setPriorityFilter, 
     setGroupFilter 
 }) => {
+    const dispatch = useDispatch();
+
     const inputTaskHandler = (e) => {
         setInputTask(e.target.value)
     };
@@ -23,6 +27,7 @@ const Form = ({
     const submitTaskHandler = (e) => {
         e.preventDefault();
         if (inputTask !== "") {
+
             setTasks([
                 ...tasks, { text: inputTask, priority: 'low', group: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100 }
             ]);
@@ -50,7 +55,8 @@ const Form = ({
         <div>
             <form className="task-form">
                 <input value={inputTask} onChange={inputTaskHandler} type="text" className="task-input" placeholder="Add task..."></input>
-                <button onClick={submitTaskHandler} className="task-button" type="submit">
+                {/* <button onClick={submitTaskHandler} className="task-button" type="submit"> */}
+                <button onClick={() => dispatch(addTask())} className="task-button" type="submit">
                     <span title="Add new task"><i className="fas fa-plus-circle"></i></span>
                 </button>
             </form>
