@@ -21,7 +21,15 @@ const taskReducer =  (state = initialState, action) => {
         case GET_TASKS:
             return {
                 ...state,
-                tasks: action.payload,
+                tasks: {
+                    id: Math.random() * 100,
+                    text: action.payload,
+                    group: 'None',
+                    priority: 'low',
+                    completed: false,
+                    deleted: false,
+                    details: 'hidden'
+                },
             };
         default:
             return state
