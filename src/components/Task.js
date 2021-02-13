@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import '../styles/Task.css'
 
 
@@ -6,9 +7,11 @@ const Task = ({
     task,
     text, 
     tasks, 
-    groups,
+    // groups,
     setTasks, 
 }) => {
+    const groups = useSelector(state => state.group.groups)
+
     const priorityHandler = () => {
         setTasks(tasks.map((element) => {
             if (element.id === task.id){
@@ -73,7 +76,7 @@ const Task = ({
         )
         );
     };
-    
+
     return(
         <div className="task">
             <div className={`task-box ${task.priority} ${task.completed ? "completed" : ""}`}>

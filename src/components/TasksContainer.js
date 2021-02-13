@@ -12,7 +12,7 @@ const TasksContainer = ({
   setTasks,
   filteredTasks,
 }) => {
-  const tasks = useSelector(state => state.tasks)
+  const tasks = useSelector(state => state.task.tasks)
 
   return(
     <div className="tasks-container">

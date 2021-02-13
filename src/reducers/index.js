@@ -4,7 +4,7 @@ import groupReducer from '../reducers/groups';
 
 const rootReducer = combineReducers({
     task: taskReducer,
-    groups: groupReducer
+    group: groupReducer
 })
 
 export default rootReducer;
