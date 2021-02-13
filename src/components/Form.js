@@ -27,9 +27,10 @@ const Form = ({
     const submitTaskHandler = (e) => {
         e.preventDefault();
         if (inputTask !== "") {
-            setTasks([
-                ...tasks, { text: inputTask, priority: 'low', group: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100 }
-            ]);
+            dispatch(addTask(inputTask))
+            // setTasks([
+            //     ...tasks, { text: inputTask, priority: 'low', group: "None", details: "hidden", completed: false, deleted: false, id: Math.random() * 100 }
+            // ]);
             setInputTask("")
         }
 
@@ -54,8 +55,8 @@ const Form = ({
         <div>
             <form className="task-form">
                 <input value={inputTask} onChange={inputTaskHandler} type="text" className="task-input" placeholder="Add task..."></input>
-                {/* <button onClick={submitTaskHandler} className="task-button" type="submit"> */}
-                <button onClick={() => dispatch(addTask(inputTask))} className="task-button" type="submit">
+                <button onClick={submitTaskHandler} className="task-button" type="submit">
+                {/* <button onClick={} className="task-button" type="submit"> */}
                     <span title="Add new task"><i className="fas fa-plus-circle"></i></span>
                 </button>
             </form>

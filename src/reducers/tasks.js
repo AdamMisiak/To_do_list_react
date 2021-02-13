@@ -21,6 +21,11 @@ const taskReducer =  (state = initialState, action) => {
         case GET_TASKS:
             return {
                 ...state,
+                task: action.payload,
+            };
+        case ADD_TASK:
+            return {
+                ...state,
                 tasks: {
                     id: Math.random() * 100,
                     text: action.payload,
@@ -30,7 +35,7 @@ const taskReducer =  (state = initialState, action) => {
                     deleted: false,
                     details: 'hidden'
                 },
-            };
+            }
         default:
             return state
     }
