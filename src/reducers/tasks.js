@@ -5,7 +5,7 @@ import { ADD_TASK, GET_TASKS } from '../actions/types.js';
 const initialState = {
     tasks: [
         {
-            id: 10,
+            id: 1,
             text: 'TEST',
             group: 'None',
             priority: 'low',
@@ -16,25 +16,26 @@ const initialState = {
     ]
 }
 
-const taskReducer =  (state = initialState, action) => {
+const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_TASKS:
             return {
                 ...state,
-                task: action.payload,
+                tasks: action.payload,
             };
         case ADD_TASK:
             return {
                 ...state,
-                tasks: {
-                    id: Math.random() * 100,
-                    text: action.payload,
-                    group: 'None',
-                    priority: 'low',
-                    completed: false,
-                    deleted: false,
-                    details: 'hidden'
-                },
+                tasks: [...state.tasks,
+                    {
+                        id: Math.random() * 100,
+                        text: action.payload,
+                        group: 'None',
+                        priority: 'low',
+                        completed: false,
+                        deleted: false,
+                        details: 'hidden'
+                    }]
             }
         default:
             return state

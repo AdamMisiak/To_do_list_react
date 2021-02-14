@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../actions/tasks';
+import { addGroup } from '../actions/groups';
 import '../styles/Form.css'
 
 
@@ -38,9 +39,10 @@ const Form = ({
     };
     const submitGroupHandler = (e) => {
         e.preventDefault();
-        setGroups([
-            ...groups, { text: inputGroup, id: Math.random() * 100 }
-        ]);
+        dispatch(addGroup(inputGroup))
+        // setGroups([
+        //     ...groups, { text: inputGroup, id: Math.random() * 100 }
+        // ]);
         setInputGroup("")
     };
     const priorityHandler = (e) => {
