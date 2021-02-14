@@ -5,8 +5,8 @@ import { ADD_GROUP, GET_GROUPS } from '../actions/types.js';
 const initialState = {
     groups: [
         {
-            text:"None",
-            id:0.0
+            id:0.0,
+            text:"None"
         }
     ]
 }
@@ -17,6 +17,15 @@ const groupReducer =  (state = initialState, action) => {
             return {
                 ...state,
                 groups: action.payload,
+            };
+        case ADD_GROUP:
+            return {
+                ...state,
+                groups: [...state.groups, 
+                    {
+                        id: Math.random() * 100,
+                        text: action.payload,
+                    }]
             };
         default:
             return state

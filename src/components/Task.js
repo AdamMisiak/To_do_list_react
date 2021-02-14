@@ -11,6 +11,7 @@ const Task = ({
     setTasks, 
 }) => {
     const groups = useSelector(state => state.group.groups)
+    console.log(groups)
 
     const priorityHandler = () => {
         setTasks(tasks.map((element) => {
