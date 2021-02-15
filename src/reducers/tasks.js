@@ -1,28 +1,13 @@
 
-import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY } from '../actions/types.js';
+import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, DELETE_TASK } from '../actions/types.js';
 
 
 const initialState = {
-    tasks: [
-        // {
-        //     id: 1,
-        //     text: 'TEST',
-        //     group: 'None',
-        //     priority: 'low',
-        //     completed: false,
-        //     deleted: false,
-        //     details: 'hidden'
-        // }
-    ]
+    tasks: []
 }
 
 const taskReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_TASKS:
-            return {
-                ...state,
-                tasks: action.payload,
-            };
         case ADD_TASK:
             return {
                 ...state,
@@ -36,26 +21,31 @@ const taskReducer = (state = initialState, action) => {
                         deleted: false,
                         details: 'hidden'
                     }]
-            }
+            };
+
+        case GET_TASKS:
+            return {
+                ...state,
+                tasks: action.payload,
+            };
+
         case CHANGE_PRIORITY:
-                return {
-                    ...state,
-                    tasks: state.tasks.map(
-                        task => task.id === action.id ?
-                        {...task, priority: action.priority} :
-                        task
-                    )
-                    // [...state.tasks,
-                    //     {
-                    //         id: Math.random() * 100,
-                    //         text: action.payload,
-                    //         group: 'None',
-                    //         priority: 'low',
-                    //         completed: false,
-                    //         deleted: false,
-                    //         details: 'hidden'
-                    //     }]
-                }
+            return {
+                ...state,
+                tasks: state.tasks.map(
+                    task => task.id === action.id ?
+                    {...task, priority: action.priority} :
+                    task
+                )
+            };
+
+        case DELETE_TASK:
+            return {
+                ...state,
+                tasks: state.tasks.filter(
+                    task => task.id !== action.id
+                )
+            };
         default:
             return state
     }

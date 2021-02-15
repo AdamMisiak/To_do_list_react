@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changePriority } from '../actions/tasks';
+import { changePriority, deleteTask } from '../actions/tasks';
 import '../styles/Task.css'
 
 
@@ -16,7 +16,6 @@ const Task = ({
     const dispatch = useDispatch();
 
     const priorityHandler = () => {
-        dispatch(changePriority(task.id, 'high'))
         if (task.priority === 'low'){
             dispatch(changePriority(task.id, 'medium'))
         }
@@ -26,30 +25,10 @@ const Task = ({
         else if (task.priority === 'high'){
             dispatch(changePriority(task.id, 'low'))
         }
-        // setTasks(tasks.map((element) => {
-        //     if (element.id === task.id){
-        //         if (element.priority === 'low'){
-        //             return{
-        //                 ...element, priority: "medium"
-        //             };
-        //         }
-        //         else if (element.priority === 'medium'){
-        //             return{
-        //                 ...element, priority: "high"
-        //             };
-        //         }
-        //         else if (element.priority === 'high'){
-        //             return{
-        //                 ...element, priority: "low"
-        //             };
-        //         }
-        //     }
-        //     return element;
-        // })
-        // );
     }
 
-    const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== task.id));
+    const deleteHandler = () => dispatch(deleteTask(task.id))
+    // const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== task.id));
 
     const completeHandler = () => {
         setTasks(tasks.map((element) => {

@@ -1,9 +1,15 @@
-import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY } from './types'
+import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, DELETE_TASK } from './types'
 
 export const addTask = (inputTask) => {
     return {
         type: ADD_TASK,
         payload: inputTask
+    }
+}
+
+export const getTasks = () => {
+    return {
+        type: GET_TASKS
     }
 }
 
@@ -15,8 +21,11 @@ export const changePriority = (id, priority) => {
     }
 }
 
-export const getTasks = () => {
+export const deleteTask = (id) => {
     return {
-        type: GET_TASKS
+        type: DELETE_TASK,
+        id: id,
     }
 }
+
+
