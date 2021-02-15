@@ -1,18 +1,18 @@
 
-import { ADD_TASK, GET_TASKS } from '../actions/types.js';
+import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY } from '../actions/types.js';
 
 
 const initialState = {
     tasks: [
-        {
-            id: 1,
-            text: 'TEST',
-            group: 'None',
-            priority: 'low',
-            completed: false,
-            deleted: false,
-            details: 'hidden'
-        }
+        // {
+        //     id: 1,
+        //     text: 'TEST',
+        //     group: 'None',
+        //     priority: 'low',
+        //     completed: false,
+        //     deleted: false,
+        //     details: 'hidden'
+        // }
     ]
 }
 
@@ -37,6 +37,25 @@ const taskReducer = (state = initialState, action) => {
                         details: 'hidden'
                     }]
             }
+        case CHANGE_PRIORITY:
+                return {
+                    ...state,
+                    tasks: state.tasks.map(
+                        task => task.id === action.id ?
+                        {...task, priority: action.priority} :
+                        task
+                    )
+                    // [...state.tasks,
+                    //     {
+                    //         id: Math.random() * 100,
+                    //         text: action.payload,
+                    //         group: 'None',
+                    //         priority: 'low',
+                    //         completed: false,
+                    //         deleted: false,
+                    //         details: 'hidden'
+                    //     }]
+                }
         default:
             return state
     }

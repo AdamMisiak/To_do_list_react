@@ -22,15 +22,15 @@ function App() {
   const tasks = useSelector(state => state.task.tasks)
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    getLocalTasks();
-    getLocalGroups();
-  }, []);
+  // useEffect(() => {
+  //   getLocalTasks();
+  //   getLocalGroups();
+  // }, []);
 
   useEffect(() => {
     filteredTasksHandler();
-    saveLocalTasks();
-    saveLocalGroups();
+    // saveLocalTasks();
+    // saveLocalGroups();
   }, [tasks, priorityFilter, groupFilter]);
 
   const filteredTasksHandler = () => {
@@ -66,32 +66,32 @@ function App() {
     }
   };
 
-  const saveLocalTasks = () => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  };
+  // const saveLocalTasks = () => {
+  //   localStorage.setItem('tasks', JSON.stringify(tasks));
+  // };
 
-  const getLocalTasks = () => {
-    if (localStorage.getItem('tasks') === null){
-      localStorage.setItem('tasks', JSON.stringify([]));
-    } else {
-      let tasksLocal = JSON.parse(localStorage.getItem('tasks'));
-      dispatch(addTask(tasksLocal))
-      // setTasks(tasksLocal)
-    }
-  };
+  // const getLocalTasks = () => {
+  //   if (localStorage.getItem('tasks') === null){
+  //     localStorage.setItem('tasks', JSON.stringify([]));
+  //   } else {
+  //     let tasksLocal = JSON.parse(localStorage.getItem('tasks'));
+  //     dispatch(addTask(tasksLocal))
+  //     // setTasks(tasksLocal)
+  //   }
+  // };
 
-  const saveLocalGroups = () => {
-    localStorage.setItem('groups', JSON.stringify(groups));
-  };
+  // const saveLocalGroups = () => {
+  //   localStorage.setItem('groups', JSON.stringify(groups));
+  // };
 
-  const getLocalGroups = () => {
-    if (localStorage.getItem('groups') === null){
-      localStorage.setItem('groups', JSON.stringify([]));
-    } else {
-      let groupsLocal = JSON.parse(localStorage.getItem('groups'));
-      setGroups(groupsLocal)
-    }
-  };
+  // const getLocalGroups = () => {
+  //   if (localStorage.getItem('groups') === null){
+  //     localStorage.setItem('groups', JSON.stringify([]));
+  //   } else {
+  //     let groupsLocal = JSON.parse(localStorage.getItem('groups'));
+  //     setGroups(groupsLocal)
+  //   }
+  // };
 
   return (
       <div>

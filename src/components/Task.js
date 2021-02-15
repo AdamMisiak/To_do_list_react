@@ -1,39 +1,44 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changePriority } from '../actions/tasks';
 import '../styles/Task.css'
 
 
 const Task = ({ 
     task,
     text, 
-    tasks, 
+    // tasks, 
     // groups,
     setTasks, 
 }) => {
     const groups = useSelector(state => state.group.groups)
+    const tasks = useSelector(state => state.task.tasks)
+    const dispatch = useDispatch();
 
     const priorityHandler = () => {
-        setTasks(tasks.map((element) => {
-            if (element.id === task.id){
-                if (element.priority === 'low'){
-                    return{
-                        ...element, priority: "medium"
-                    };
-                }
-                else if (element.priority === 'medium'){
-                    return{
-                        ...element, priority: "high"
-                    };
-                }
-                else if (element.priority === 'high'){
-                    return{
-                        ...element, priority: "low"
-                    };
-                }
-            }
-            return element;
-        })
-        );
+        console.log(task.id)
+        dispatch(changePriority(task.id, 'high'))
+        // setTasks(tasks.map((element) => {
+        //     if (element.id === task.id){
+        //         if (element.priority === 'low'){
+        //             return{
+        //                 ...element, priority: "medium"
+        //             };
+        //         }
+        //         else if (element.priority === 'medium'){
+        //             return{
+        //                 ...element, priority: "high"
+        //             };
+        //         }
+        //         else if (element.priority === 'high'){
+        //             return{
+        //                 ...element, priority: "low"
+        //             };
+        //         }
+        //     }
+        //     return element;
+        // })
+        // );
     }
 
     const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== task.id));
@@ -76,7 +81,7 @@ const Task = ({
         )
         );
     };
-    console.log(task)
+
     return(
         <div className="task">
             <div className={`task-box ${task.priority} ${task.completed ? "completed" : ""}`}>
