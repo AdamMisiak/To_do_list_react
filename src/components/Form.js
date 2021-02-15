@@ -22,9 +22,11 @@ const Form = ({
     const inputTaskHandler = (e) => {
         setInputTask(e.target.value)
     };
+
     const inputGroupHandler = (e) => {
         setInputGroup(e.target.value)
     };
+
     const submitTaskHandler = (e) => {
         e.preventDefault();
         if (inputTask !== "") {
@@ -34,9 +36,8 @@ const Form = ({
             // ]);
             setInputTask("")
         }
-
-
     };
+
     const submitGroupHandler = (e) => {
         e.preventDefault();
         dispatch(addGroup(inputGroup))
@@ -45,6 +46,7 @@ const Form = ({
         // ]);
         setInputGroup("")
     };
+    
     const priorityHandler = (e) => {
         setPriorityFilter(e.target.value)
     };

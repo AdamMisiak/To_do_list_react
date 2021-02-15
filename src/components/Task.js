@@ -11,7 +11,6 @@ const Task = ({
     setTasks, 
 }) => {
     const groups = useSelector(state => state.group.groups)
-    console.log(groups)
 
     const priorityHandler = () => {
         setTasks(tasks.map((element) => {
@@ -77,7 +76,7 @@ const Task = ({
         )
         );
     };
-
+    console.log(task)
     return(
         <div className="task">
             <div className={`task-box ${task.priority} ${task.completed ? "completed" : ""}`}>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Provider } from 'react-redux';
+import { Provider, useSelector, useDispatch } from 'react-redux';
+import { addTask } from './actions/tasks';
 import store from './store'
+
 import './styles/App.css';
 
 import Form from './components/Form'
@@ -10,13 +12,15 @@ function App() {
   const [inputTask, setInputTask] = useState("");
   const [inputGroup, setInputGroup] = useState("");
 
-  const [tasks, setTasks] = useState([])
+  // const [tasks, setTasks] = useState([])
   const [groups, setGroups] = useState([{text:"None", id:0.0}])
 
   const [priorityFilter, setPriorityFilter] = useState("All")
   const [groupFilter, setGroupFilter] = useState("All")
   const [filteredTasks, setFilteredTasks] = useState([])
 
+  const tasks = useSelector(state => state.task.tasks)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getLocalTasks();
@@ -71,7 +75,8 @@ function App() {
       localStorage.setItem('tasks', JSON.stringify([]));
     } else {
       let tasksLocal = JSON.parse(localStorage.getItem('tasks'));
-      setTasks(tasksLocal)
+      dispatch(addTask(tasksLocal))
+      // setTasks(tasksLocal)
     }
   };
 
@@ -89,7 +94,6 @@ function App() {
   };
 
   return (
-    <Provider store={store}>
       <div>
             <header>
               <h1>To Do App</h1>
@@ -101,7 +105,7 @@ function App() {
               setInputTask={setInputTask}
               inputGroup={inputGroup}
               setInputGroup={setInputGroup}
-              setTasks={setTasks}
+              // setTasks={setTasks}
               setGroups={setGroups}
               setPriorityFilter={setPriorityFilter}
               setGroupFilter={setGroupFilter}
@@ -109,11 +113,10 @@ function App() {
             <TasksContainer 
               tasks={tasks} 
               groups={groups}
-              setTasks={setTasks} 
+              // setTasks={setTasks} 
               filteredTasks={filteredTasks}
             />    
           </div>
-    </Provider>
   );
 }
 
