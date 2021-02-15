@@ -16,8 +16,16 @@ const Task = ({
     const dispatch = useDispatch();
 
     const priorityHandler = () => {
-        console.log(task.id)
         dispatch(changePriority(task.id, 'high'))
+        if (task.priority === 'low'){
+            dispatch(changePriority(task.id, 'medium'))
+        }
+        else if (task.priority === 'medium'){
+            dispatch(changePriority(task.id, 'high'))
+        }
+        else if (task.priority === 'high'){
+            dispatch(changePriority(task.id, 'low'))
+        }
         // setTasks(tasks.map((element) => {
         //     if (element.id === task.id){
         //         if (element.priority === 'low'){
