@@ -7,9 +7,6 @@ import '../styles/Task.css'
 const Task = ({ 
     task,
     text, 
-    // tasks, 
-    // groups,
-    setTasks, 
 }) => {
     const groups = useSelector(state => state.group.groups)
     const dispatch = useDispatch();

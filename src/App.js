@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Provider, useSelector, useDispatch } from 'react-redux';
-import { addTask } from './actions/tasks';
-import store from './store'
+import { useSelector, useDispatch } from 'react-redux';
 
 import './styles/App.css';
-
 import Form from './components/Form'
 import TasksContainer from './components/TasksContainer'
 
@@ -13,13 +10,14 @@ function App() {
   const [inputGroup, setInputGroup] = useState("");
 
   // const [tasks, setTasks] = useState([])
-  const [groups, setGroups] = useState([{text:"None", id:0.0}])
+  // const [groups, setGroups] = useState([{text:"None", id:0.0}])
 
   const [priorityFilter, setPriorityFilter] = useState("All")
   const [groupFilter, setGroupFilter] = useState("All")
   const [filteredTasks, setFilteredTasks] = useState([])
 
   const tasks = useSelector(state => state.task.tasks)
+  const groups = useSelector(state => state.group.groups)
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -99,21 +97,14 @@ function App() {
               <h1>To Do App</h1>
             </header>
             <Form
-              tasks={tasks}
-              groups={groups}
               inputTask={inputTask}
               setInputTask={setInputTask}
               inputGroup={inputGroup}
               setInputGroup={setInputGroup}
-              // setTasks={setTasks}
-              setGroups={setGroups}
               setPriorityFilter={setPriorityFilter}
               setGroupFilter={setGroupFilter}
             />
             <TasksContainer 
-              tasks={tasks} 
-              groups={groups}
-              // setTasks={setTasks} 
               filteredTasks={filteredTasks}
             />    
           </div>
