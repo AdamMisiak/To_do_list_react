@@ -1,4 +1,4 @@
-import { ADD_GROUP, GET_GROUPS } from './types'
+import { ADD_GROUP, WRITE_GROUPS } from './types'
 
 export const addGroup = (inputGroup) => {
     return {
@@ -7,8 +7,9 @@ export const addGroup = (inputGroup) => {
     }
 }
 
-export const getGroups = () => {
+export const writeGroups = (groups) => {
     return {
-        type: GET_GROUPS
+        type: WRITE_GROUPS,
+        payload: groups
     }
 }

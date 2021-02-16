@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './styles/App.css';
-import { 
-  writeTasks,
-} from './actions/tasks';
+import { writeTasks } from './actions/tasks';
+import { writeGroups } from './actions/groups';
 import Form from './components/Form'
 import TasksContainer from './components/TasksContainer'
 
@@ -25,7 +24,7 @@ function App() {
 
   useEffect(() => {
     getLocalTasks();
-    // getLocalGroups();
+    getLocalGroups();
   }, []);
 
   useEffect(() => {
@@ -76,9 +75,7 @@ function App() {
       localStorage.setItem('tasks', JSON.stringify([]));
     } else {
       let tasksLocal = JSON.parse(localStorage.getItem('tasks'));
-      // console.log(tasksLocal)
       dispatch(writeTasks(tasksLocal))
-      // setTasks(tasksLocal)
     }
   };
 
@@ -86,14 +83,14 @@ function App() {
     localStorage.setItem('groups', JSON.stringify(groups));
   };
 
-  // const getLocalGroups = () => {
-  //   if (localStorage.getItem('groups') === null){
-  //     localStorage.setItem('groups', JSON.stringify([]));
-  //   } else {
-  //     let groupsLocal = JSON.parse(localStorage.getItem('groups'));
-  //     setGroups(groupsLocal)
-  //   }
-  // };
+  const getLocalGroups = () => {
+    if (localStorage.getItem('groups') === null){
+      localStorage.setItem('groups', JSON.stringify([]));
+    } else {
+      let groupsLocal = JSON.parse(localStorage.getItem('groups'));
+      dispatch(writeGroups(groupsLocal))
+    }
+  };
 
   return (
       <div>

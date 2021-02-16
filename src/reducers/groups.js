@@ -1,5 +1,8 @@
 
-import { ADD_GROUP, GET_GROUPS } from '../actions/types.js';
+import { 
+    ADD_GROUP,
+    WRITE_GROUPS
+} from '../actions/types.js';
 
 
 const initialState = {
@@ -13,11 +16,6 @@ const initialState = {
 
 const groupReducer =  (state = initialState, action) => {
     switch (action.type) {
-        case GET_GROUPS:
-            return {
-                ...state,
-                groups: action.payload,
-            };
         case ADD_GROUP:
             return {
                 ...state,
@@ -27,6 +25,13 @@ const groupReducer =  (state = initialState, action) => {
                         text: action.payload,
                     }]
             };
+
+        case WRITE_GROUPS:
+            return {
+                ...state, 
+                groups: action.payload,
+            };
+
         default:
             return state
     }

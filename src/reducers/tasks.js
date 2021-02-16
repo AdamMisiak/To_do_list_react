@@ -1,8 +1,6 @@
-
 import { 
     ADD_TASK,
     WRITE_TASKS,
-    GET_TASKS,
     CHANGE_PRIORITY,
     CHANGE_GROUP,
     COMPLETE_TASK,
@@ -35,12 +33,6 @@ const taskReducer = (state = initialState, action) => {
         case WRITE_TASKS:
             return {
                 ...state, 
-                tasks: action.payload,
-            };
-    
-        case GET_TASKS:
-            return {
-                ...state,
                 tasks: action.payload,
             };
 

@@ -1,7 +1,6 @@
 import { 
     ADD_TASK,
     WRITE_TASKS,
-    GET_TASKS,
     CHANGE_PRIORITY,
     CHANGE_GROUP,
     COMPLETE_TASK,
@@ -20,12 +19,6 @@ export const writeTasks = (tasks) => {
     return {
         type: WRITE_TASKS,
         payload: tasks
-    }
-}
-
-export const getTasks = () => {
-    return {
-        type: GET_TASKS
     }
 }
 
