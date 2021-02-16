@@ -1,9 +1,25 @@
-import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, CHANGE_GROUP, COMPLETE_TASK, HIDE_TASK, DELETE_TASK } from './types'
+import { 
+    ADD_TASK,
+    WRITE_TASKS,
+    GET_TASKS,
+    CHANGE_PRIORITY,
+    CHANGE_GROUP,
+    COMPLETE_TASK,
+    HIDE_TASK,
+    DELETE_TASK
+} from '../actions/types.js';
 
 export const addTask = (inputTask) => {
     return {
         type: ADD_TASK,
         payload: inputTask
+    }
+}
+
+export const writeTasks = (tasks) => {
+    return {
+        type: WRITE_TASKS,
+        payload: tasks
     }
 }
 

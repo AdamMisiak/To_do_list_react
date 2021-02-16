@@ -1,4 +1,5 @@
 export const ADD_TASK = 'ADD_TASK';
+export const WRITE_TASKS = 'WRITE_TASKS';
 export const GET_TASKS = 'GET_TASKS';
 export const CHANGE_PRIORITY = 'CHANGE_PRIORITY';
 export const CHANGE_GROUP = 'CHANGE_GROUP';

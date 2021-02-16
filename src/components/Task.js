@@ -1,6 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changePriority, changeGroup, completeTask, hideTask, deleteTask } from '../actions/tasks';
+import { 
+    changePriority,
+    changeGroup,
+    completeTask,
+    hideTask,
+    deleteTask 
+} from '../actions/tasks';
 import '../styles/Task.css'
 
 

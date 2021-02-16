@@ -1,5 +1,14 @@
 
-import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, CHANGE_GROUP, COMPLETE_TASK, HIDE_TASK, DELETE_TASK } from '../actions/types.js';
+import { 
+    ADD_TASK,
+    WRITE_TASKS,
+    GET_TASKS,
+    CHANGE_PRIORITY,
+    CHANGE_GROUP,
+    COMPLETE_TASK,
+    HIDE_TASK,
+    DELETE_TASK
+} from '../actions/types.js';
 
 
 const initialState = {
@@ -23,6 +32,12 @@ const taskReducer = (state = initialState, action) => {
                     }]
             };
 
+        case WRITE_TASKS:
+            return {
+                ...state, 
+                tasks: action.payload,
+            };
+    
         case GET_TASKS:
             return {
                 ...state,
