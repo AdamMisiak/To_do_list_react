@@ -27,9 +27,9 @@ function App() {
 
   useEffect(() => {
     filteredTasksHandler();
-    // saveLocalTasks();
-    // saveLocalGroups();
-  }, [tasks, priorityFilter, groupFilter]);
+    saveLocalTasks();
+    saveLocalGroups();
+  }, [tasks, groups, priorityFilter, groupFilter]);
 
   const filteredTasksHandler = () => {
     switch(priorityFilter){
@@ -64,9 +64,9 @@ function App() {
     }
   };
 
-  // const saveLocalTasks = () => {
-  //   localStorage.setItem('tasks', JSON.stringify(tasks));
-  // };
+  const saveLocalTasks = () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  };
 
   // const getLocalTasks = () => {
   //   if (localStorage.getItem('tasks') === null){
@@ -78,9 +78,9 @@ function App() {
   //   }
   // };
 
-  // const saveLocalGroups = () => {
-  //   localStorage.setItem('groups', JSON.stringify(groups));
-  // };
+  const saveLocalGroups = () => {
+    localStorage.setItem('groups', JSON.stringify(groups));
+  };
 
   // const getLocalGroups = () => {
   //   if (localStorage.getItem('groups') === null){
