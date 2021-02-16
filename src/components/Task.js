@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changePriority, deleteTask } from '../actions/tasks';
+import { changePriority, completeTask, hideTask, deleteTask } from '../actions/tasks';
 import '../styles/Task.css'
 
 
@@ -30,30 +30,36 @@ const Task = ({
     const deleteHandler = () => dispatch(deleteTask(task.id))
     // const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== task.id));
 
-    const completeHandler = () => {
-        setTasks(tasks.map((element) => {
-            if (element.id === task.id){
-                return {
-                    ...element, completed: !element.completed
-                };
-            }
-            return element;
-        })
-        );
-    }
+    const completeHandler = () => dispatch(completeTask(task.id))
+        // setTasks(tasks.map((element) => {
+        //     if (element.id === task.id){
+        //         return {
+        //             ...element, completed: !element.completed
+        //         };
+        //     }
+        //     return element;
+        // })
+        // );
+    
 
     const hiddenHandler = () => {
-        setTasks(tasks.map((element) => {    
-            if (element.id === task.id){
-                    return {
-                        ...element,
-                        details: element.details === 'hidden' ? 'unhidden': 'hidden'
-                    };
-                }
-                return element;
-            }
-        )
-        );
+        if (task.details === 'hidden'){
+            dispatch(hideTask(task.id, 'unhidden'))
+        }
+        else if (task.details === 'unhidden'){
+            dispatch(hideTask(task.id, 'hidden'))
+        }
+        // setTasks(tasks.map((element) => {    
+        //     if (element.id === task.id){
+        //             return {
+        //                 ...element,
+        //                 details: element.details === 'hidden' ? 'unhidden': 'hidden'
+        //             };
+        //         }
+        //         return element;
+        //     }
+        // )
+        // );
     };
 
     const groupHandler = (e) => {

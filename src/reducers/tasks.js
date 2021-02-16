@@ -1,5 +1,5 @@
 
-import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, DELETE_TASK } from '../actions/types.js';
+import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, COMPLETE_TASK, HIDE_TASK, DELETE_TASK } from '../actions/types.js';
 
 
 const initialState = {
@@ -35,6 +35,26 @@ const taskReducer = (state = initialState, action) => {
                 tasks: state.tasks.map(
                     task => task.id === action.id ?
                     {...task, priority: action.priority} :
+                    task
+                )
+            };
+
+        case COMPLETE_TASK:
+            return {
+                ...state,
+                tasks: state.tasks.map(
+                    task => task.id === action.id ?
+                    {...task, completed: !task.completed} :
+                    task
+                )
+            };
+
+        case HIDE_TASK:
+            return {
+                ...state,
+                tasks: state.tasks.map(
+                    task => task.id === action.id ?
+                    {...task, details: action.details} :
                     task
                 )
             };
