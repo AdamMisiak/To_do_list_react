@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changePriority, completeTask, hideTask, deleteTask } from '../actions/tasks';
+import { changePriority, changeGroup, completeTask, hideTask, deleteTask } from '../actions/tasks';
 import '../styles/Task.css'
 
 
@@ -12,7 +12,6 @@ const Task = ({
     setTasks, 
 }) => {
     const groups = useSelector(state => state.group.groups)
-    const tasks = useSelector(state => state.task.tasks)
     const dispatch = useDispatch();
 
     const priorityHandler = () => {
@@ -28,19 +27,8 @@ const Task = ({
     }
 
     const deleteHandler = () => dispatch(deleteTask(task.id))
-    // const deleteHandler = () => setTasks(tasks.filter((element) => element.id !== task.id));
 
     const completeHandler = () => dispatch(completeTask(task.id))
-        // setTasks(tasks.map((element) => {
-        //     if (element.id === task.id){
-        //         return {
-        //             ...element, completed: !element.completed
-        //         };
-        //     }
-        //     return element;
-        // })
-        // );
-    
 
     const hiddenHandler = () => {
         if (task.details === 'hidden'){
@@ -49,31 +37,9 @@ const Task = ({
         else if (task.details === 'unhidden'){
             dispatch(hideTask(task.id, 'hidden'))
         }
-        // setTasks(tasks.map((element) => {    
-        //     if (element.id === task.id){
-        //             return {
-        //                 ...element,
-        //                 details: element.details === 'hidden' ? 'unhidden': 'hidden'
-        //             };
-        //         }
-        //         return element;
-        //     }
-        // )
-        // );
     };
 
-    const groupHandler = (e) => {
-        setTasks(tasks.map((element) => {  
-            if (element.id === task.id){
-                return{
-                    ...element, group: e.target.value
-                };
-            }  
-            return element;
-        }
-        )
-        );
-    };
+    const groupHandler = (e) => dispatch(changeGroup(task.id, e.target.value))
 
     return(
         <div className="task">

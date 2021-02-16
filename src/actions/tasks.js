@@ -1,4 +1,4 @@
-import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, COMPLETE_TASK, HIDE_TASK, DELETE_TASK } from './types'
+import { ADD_TASK, GET_TASKS, CHANGE_PRIORITY, CHANGE_GROUP, COMPLETE_TASK, HIDE_TASK, DELETE_TASK } from './types'
 
 export const addTask = (inputTask) => {
     return {
@@ -18,6 +18,14 @@ export const changePriority = (id, priority) => {
         type: CHANGE_PRIORITY,
         id: id,
         priority: priority
+    }
+}
+
+export const changeGroup = (id, group) => {
+    return {
+        type: CHANGE_GROUP,
+        id: id,
+        group: group
     }
 }
 
