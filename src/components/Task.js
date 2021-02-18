@@ -7,7 +7,8 @@ import {
     hideTask,
     deleteTask 
 } from '../actions/tasks';
-import '../styles/Task.css'
+import '../styles/Task.css';
+import * as Constants from './constants';
 
 
 const Task = ({ 
@@ -18,14 +19,14 @@ const Task = ({
     const dispatch = useDispatch();
 
     const priorityHandler = () => {
-        if (task.priority === 'low'){
-            dispatch(changePriority(task.id, 'medium'))
+        if (task.priority === Constants.LOW){
+            dispatch(changePriority(task.id, Constants.MEDIUM))
         }
-        else if (task.priority === 'medium'){
-            dispatch(changePriority(task.id, 'high'))
+        else if (task.priority === Constants.MEDIUM){
+            dispatch(changePriority(task.id, Constants.HIGH))
         }
-        else if (task.priority === 'high'){
-            dispatch(changePriority(task.id, 'low'))
+        else if (task.priority === Constants.HIGH){
+            dispatch(changePriority(task.id, Constants.LOW))
         }
     }
 

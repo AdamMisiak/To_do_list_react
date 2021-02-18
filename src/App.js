@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './styles/App.css';
+import * as Constants from './constants';
 import { writeTasks } from './actions/tasks';
 import { writeGroups } from './actions/groups';
 import Form from './components/Form'
@@ -10,9 +11,6 @@ import TasksContainer from './components/TasksContainer'
 function App() {
   const [inputTask, setInputTask] = useState("");
   const [inputGroup, setInputGroup] = useState("");
-
-  // const [tasks, setTasks] = useState([])
-  // const [groups, setGroups] = useState([{text:"None", id:0.0}])
 
   const [priorityFilter, setPriorityFilter] = useState("All")
   const [groupFilter, setGroupFilter] = useState("All")
@@ -35,14 +33,14 @@ function App() {
 
 
   const filteredTasksHandler = () => {
-    if (groupFilter === "All") {
-      if (priorityFilter === "All"){
+    if (groupFilter === Constants.ALL) {
+      if (priorityFilter === Constants.ALL){
         setFilteredTasks(tasks);
       } else {
         setFilteredTasks(tasks.filter(task => task.priority === priorityFilter));
       }
     } else {
-      if (priorityFilter === "All"){
+      if (priorityFilter === Constants.ALL){
         setFilteredTasks(tasks.filter(task => task.group === groupFilter));
       } else {
         setFilteredTasks(tasks.filter(task => task.priority === priorityFilter && task.group === groupFilter));
@@ -51,27 +49,27 @@ function App() {
   };
 
   const saveLocalTasks = () => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(Constants.TASKS, JSON.stringify(tasks));
   };
 
   const getLocalTasks = () => {
-    if (localStorage.getItem('tasks') === null){
-      localStorage.setItem('tasks', JSON.stringify([]));
+    if (localStorage.getItem(Constants.TASKS) === null){
+      localStorage.setItem(Constants.TASKS, JSON.stringify([]));
     } else {
-      let tasksLocal = JSON.parse(localStorage.getItem('tasks'));
+      let tasksLocal = JSON.parse(localStorage.getItem(Constants.TASKS));
       dispatch(writeTasks(tasksLocal))
     }
   };
 
   const saveLocalGroups = () => {
-    localStorage.setItem('groups', JSON.stringify(groups));
+    localStorage.setItem(Constants.GROUPS, JSON.stringify(groups));
   };
 
   const getLocalGroups = () => {
-    if (localStorage.getItem('groups') === null){
-      localStorage.setItem('groups', JSON.stringify([]));
+    if (localStorage.getItem(Constants.GROUPS) === null){
+      localStorage.setItem(Constants.GROUPS, JSON.stringify([]));
     } else {
-      let groupsLocal = JSON.parse(localStorage.getItem('groups'));
+      let groupsLocal = JSON.parse(localStorage.getItem(Constants.GROUPS));
       dispatch(writeGroups(groupsLocal))
     }
   };
