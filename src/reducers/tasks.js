@@ -26,7 +26,7 @@ const taskReducer = (state = initialState, action) => {
                         priority: 'low',
                         completed: false,
                         deleted: false,
-                        details: 'hidden'
+                        details: true
                     }]
             };
 
@@ -71,7 +71,7 @@ const taskReducer = (state = initialState, action) => {
                 ...state,
                 tasks: state.tasks.map(
                     task => task.id === action.id ?
-                    {...task, details: action.details} :
+                    {...task, details: !task.details} :
                     task
                 )
             };

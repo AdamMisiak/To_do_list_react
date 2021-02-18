@@ -8,7 +8,7 @@ import {
     deleteTask 
 } from '../actions/tasks';
 import '../styles/Task.css';
-import * as Constants from './constants';
+import * as Constants from '../constants';
 
 
 const Task = ({ 
@@ -34,14 +34,7 @@ const Task = ({
 
     const completeHandler = () => dispatch(completeTask(task.id))
 
-    const hiddenHandler = () => {
-        if (task.details === 'hidden'){
-            dispatch(hideTask(task.id, 'unhidden'))
-        }
-        else if (task.details === 'unhidden'){
-            dispatch(hideTask(task.id, 'hidden'))
-        }
-    };
+    const hiddenHandler = () => dispatch(hideTask(task.id))
 
     const groupHandler = (e) => dispatch(changeGroup(task.id, e.target.value))
 
@@ -56,7 +49,7 @@ const Task = ({
                 <button onClick={completeHandler} className="complete-button"><i className="fas fa-check-circle"></i></button>
                 <button onClick={deleteHandler} className="delete-button"><i className="fas fa-minus-circle"></i></button>
             </div>
-            <div className={`task-details ${task.priority} ${task.completed ? "completed" : ""} ${task.details}`}>
+            <div className={`task-details ${task.priority} ${task.completed ? "completed" : ""} ${task.details ? "hidden" : "unhidden"}`}>
                 <div className="task-group">
                     Group:
                     <select value={task.group} onChange={groupHandler} className="select-group">

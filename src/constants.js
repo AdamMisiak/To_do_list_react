@@ -7,5 +7,3 @@ export const GROUPS = 'groups';
 export const LOW = 'low';
 export const MEDIUM = 'medium';
 export const HIGH = 'high';
-export const HIDDEN = 'medium';
-export const HIGH = 'high';

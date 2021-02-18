@@ -45,11 +45,10 @@ export const completeTask = (id) => {
     }
 }
 
-export const hideTask = (id, details) => {
+export const hideTask = (id) => {
     return {
         type: HIDE_TASK,
         id: id,
-        details: details
     }
 }
 
