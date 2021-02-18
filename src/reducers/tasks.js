@@ -20,7 +20,7 @@ const taskReducer = (state = initialState, action) => {
                 ...state,
                 tasks: [...state.tasks,
                     {
-                        id: Math.random() * 100,
+                        id: Date.now(),
                         text: action.payload,
                         group: 'None',
                         priority: 'low',
