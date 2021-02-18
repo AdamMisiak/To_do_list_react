@@ -33,36 +33,20 @@ function App() {
     saveLocalGroups();
   }, [tasks, groups, priorityFilter, groupFilter]);
 
+
   const filteredTasksHandler = () => {
-    switch(priorityFilter){
-      case "low":
-        if (groupFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "low" && task.group === groupFilter));
-        } else if (groupFilter === "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "low"));
-        }
-        break;
-      case "medium":
-        if (groupFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "medium" && task.group === groupFilter));
-        } else if (groupFilter === "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "medium"));
-        }
-        break;
-      case "high":
-        if (groupFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "high" && task.group === groupFilter));
-        } else if (groupFilter === "All"){
-          setFilteredTasks(tasks.filter(task => task.priority === "high"));
-        }
-        break;
-      default:
-        if (groupFilter !== "All"){
-          setFilteredTasks(tasks.filter(task => task.group === groupFilter));
-        } else if (groupFilter === "All"){
-          setFilteredTasks(tasks);
-        }
-        break;
+    if (groupFilter === "All") {
+      if (priorityFilter === "All"){
+        setFilteredTasks(tasks);
+      } else {
+        setFilteredTasks(tasks.filter(task => task.priority === priorityFilter));
+      }
+    } else {
+      if (priorityFilter === "All"){
+        setFilteredTasks(tasks.filter(task => task.group === groupFilter));
+      } else {
+        setFilteredTasks(tasks.filter(task => task.priority === priorityFilter && task.group === groupFilter));
+      }
     }
   };
 

@@ -66,7 +66,7 @@ const Form = ({
                 <h3>Priority filter:</h3>
                 <div className="select priority">
                     <select onChange={priorityHandler} name="filter-priority" className="filter-priority" placeholder="Add group...">
-                        <option value="all">All</option>
+                        <option value="All">All</option>
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
